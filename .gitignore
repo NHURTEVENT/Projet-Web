@@ -1,23 +1,23 @@
 
 ###> symfony/framework-bundle ###
-/.env
-/public/bundles/
-/var/
-/vendor/
+Website/.env
+Website/public/bundles/
+Website/var/
+Website/vendor/
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-pack ###
-/node_modules/
-/public/build/
-npm-debug.log
-yarn-error.log
+Website/node_modules/
+Website/public/build/
+Website/npm-debug.log
+Website/yarn-error.log
 ###< symfony/webpack-encore-pack ###
 
 ###> symfony/phpunit-bridge ###
-.phpunit
-/phpunit.xml
+Website/.phpunit
+Website/phpunit.xml
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/web-server-bundle ###
-/.web-server-pid
+Website/.web-server-pid
 ###< symfony/web-server-bundle ###
