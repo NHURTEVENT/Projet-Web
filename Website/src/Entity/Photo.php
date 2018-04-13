@@ -29,6 +29,13 @@ class Photo
      */
     private $description;
 
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $url;
+
+
     /**
      * @ORM\Column(type="boolean",options={"default":0})
      */
@@ -37,12 +44,12 @@ class Photo
     /**
      * @ORM\ManyToOne(targetEntity="User")
      */
-    private $id_user;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Event")
      */
-    private $id_event;
+    private $event;
 
 
 }

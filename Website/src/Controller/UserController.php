@@ -23,7 +23,6 @@ class UserController extends Controller{
 
     public function newAction()
     {
-        //$user = new User("user".rand(1,100));
         $user = new User("moi","moi","même","moi@mail.com",0,1);
         //$user->setUsername("user".rand(1,100));
 
@@ -31,13 +30,31 @@ class UserController extends Controller{
         $em->persist($user);
         $em->flush();
 
-        return new Response('Genus created!');
+        return new Response('User created!');
     }
     /**
      * @Route("/users/{username}")
      */
     public function showAction($username)
     {
+        return new Response(''.$username);
+    }
 
+    /**
+     * @Route("/login/{username}/{password}")
+     */
+    public function checkUser($username, $password){
+
+        $qb = $this->getDoctrine()->getRepository('User');
+        $users = $qb->findAll();
+
+
+            /*
+        $queryBuilder
+            ->select('id', 'name')
+            ->from('users')
+            ->where('email = ?')
+            ->setParameter(0, $userInputEmail)
+        ;*/
     }
 }

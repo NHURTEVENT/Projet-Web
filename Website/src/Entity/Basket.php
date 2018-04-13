@@ -31,7 +31,6 @@ class Basket
     private $id_product;
 
     /**
-     * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $quantity;

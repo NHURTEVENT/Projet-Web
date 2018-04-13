@@ -42,6 +42,12 @@ class User {
      */
     private $email;
 
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $password;
+
     /**
      * @ORM\Column(type="boolean",options={"default":0})
      */
