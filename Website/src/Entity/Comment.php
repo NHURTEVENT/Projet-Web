@@ -22,7 +22,7 @@ class Comment
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
-    private $id_comment;
+    private $id;
 
     /**
      * @ORM\Column(type="string")

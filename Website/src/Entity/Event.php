@@ -10,7 +10,6 @@ namespace App\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\User;
 
 /**
  * @ORM\Entity
@@ -61,4 +60,11 @@ class Event
      * @ORM\Column(type="boolean",options={"default":0})
      */
     private $free;
+
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
+
 }

@@ -2,20 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: Nico
- * Date: 11/04/2018
- * Time: 21:13
+ * Date: 12/04/2018
+ * Time: 16:44
  */
 
 namespace App\Entity;
+
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="subscriptions")
+ * @ORM\Table(name="LikedComments")
  */
-class Subscription
+class LikedComment
 {
+
+
     /**
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="User")
@@ -24,7 +27,7 @@ class Subscription
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Event")
+     * @ORM\ManyToOne(targetEntity="Comment")
      */
-    private $id_event;
+    private $id_comment;
 }

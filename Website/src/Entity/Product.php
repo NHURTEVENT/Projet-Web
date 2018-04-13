@@ -42,6 +42,12 @@ class Product
     private $price;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $popularity;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Category")
      */
     private $category;
