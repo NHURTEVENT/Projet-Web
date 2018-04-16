@@ -1,185 +1,142 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nico
- * Date: 11/04/2018
- * Time: 10:43
- */
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="users")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User {
-
+class User
+{
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private $surname;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private $email;
 
-
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="boolean",options={"default":0})
+     * @ORM\Column(type="boolean")
      */
     private $modo;
 
     /**
-     * @ORM\Column(type="boolean",options={"default":0})
+     * @ORM\Column(type="boolean")
      */
     private $admin;
 
-    /**
-     * User constructor.
-     * @param $username
-     * @param $name
-     * @param $surname
-     * @param $email
-     * @param $modo
-     * @param $admin
-     */
-    public function __construct($username, $name, $surname, $email, $modo, $admin)
-    {
-        $this->username = $username;
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->email = $email;
-        $this->modo = $modo;
-        $this->admin = $admin;
-    }
-
-
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUsername()
+    public function getUsername(): ?string
     {
         return $this->username;
     }
 
-    /**
-     * @param mixed $username
-     */
-    public function setUsername($username): void
+    public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
+    public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSurname()
+    public function getSurname(): ?string
     {
         return $this->surname;
     }
 
-    /**
-     * @param mixed $surname
-     */
-    public function setSurname($surname): void
+    public function setSurname(string $surname): self
     {
         $this->surname = $surname;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email): void
+    public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getModo()
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getModo(): ?bool
     {
         return $this->modo;
     }
 
-    /**
-     * @param mixed $modo
-     */
-    public function setModo($modo): void
+    public function setModo(bool $modo): self
     {
         $this->modo = $modo;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAdmin()
+    public function getAdmin(): ?string
     {
         return $this->admin;
     }
 
-    /**
-     * @param mixed $admin
-     */
-    public function setAdmin($admin): void
+    public function setAdmin(string $admin): self
     {
         $this->admin = $admin;
-    }
 
+        return $this;
+    }
 }
