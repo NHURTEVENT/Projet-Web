@@ -1,31 +1,53 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nico
- * Date: 12/04/2018
- * Time: 16:44
- */
 
 namespace App\Entity;
-
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="likedPhotos")
+ * @ORM\Entity(repositoryClass="App\Repository\LikedPhotoRepository")
  */
 class LikedPhoto
 {
+
     /**
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="User")
      */
-    private $id_user;
+    private $user_id;
 
     /**
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Photo")
      */
-    private $id_photo;
+    private $photo_id;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(int $user_id): self
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    public function getPhotoId(): ?int
+    {
+        return $this->photo_id;
+    }
+
+    public function setPhotoId(int $photo_id): self
+    {
+        $this->photo_id = $photo_id;
+
+        return $this;
+    }
 }

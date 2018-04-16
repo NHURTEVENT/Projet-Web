@@ -1,30 +1,52 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nico
- * Date: 11/04/2018
- * Time: 21:13
- */
 
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="subscriptions")
+ * @ORM\Entity(repositoryClass="App\Repository\SubscriptionRepository")
  */
 class Subscription
 {
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\ManyToOne(targetEntity="User")
      */
-    private $id_user;
+    private $user_id;
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\ManyToOne(targetEntity="Event")
      */
-    private $id_event;
+    private $event_id;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(int $user_id): self
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    public function getEventId(): ?int
+    {
+        return $this->event_id;
+    }
+
+    public function setEventId(int $event_id): self
+    {
+        $this->event_id = $event_id;
+
+        return $this;
+    }
 }
