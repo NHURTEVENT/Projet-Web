@@ -173,21 +173,51 @@ header{
 }
 
 #soumettre{
+    display: flex;
+    justify-content: space-between;
     margin-left: 35%;
+}
+
+#addIdea{
+    border: solid;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20px;
+    width:50%;
+}
+
+#titreAjoutIdée{
+    display: flex;
+    justify-content: center;
+}
+
+#idée{
+    display: flex;
+    justify-content: center;
+}
+
+#titreIdée{
+    margin-left:10px;
+}
+
+#ajoutIdée{
+    display: flex;
+    margin-left: 45%;
+    width:80px;
 }
 
 /*css pageBoutique */
 
-#base{
+#baseBoutique{
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    width: 100%;
 }
 
 #container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     margin-left: 20%;
 }
@@ -310,12 +340,17 @@ header{
 
 #ajoutEvent{
     font-size: 20px;
+    margin-left: 5px;
+}
+
+#barreAddEvent{
+    display:flex;
 }
 
 /*css inscription*/
 
 #inscription-connexion{
-    margin-top: 15%;
+    margin-top: 5%;
     margin-right: 35%;
     margin-left: 35%;
     border:solid;
@@ -327,21 +362,17 @@ header{
     font-size: 20px;
 }
 
-#inscription{
-    margin-left: 15%;
+.required{
+    margin-left: 10px;
+    margin-bottom: 3px;
 }
 
-#confirmation{
-    display:flex;
-    justify-content: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
+#link{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%
 }
-
-#btnInscription{
-    margin-right:5%;
-}
-
 /*css connexion*/
 
 #connexion{
@@ -353,9 +384,10 @@ header{
 
 #Panier{
     border:solid;
-    margin-top:15%;
+    margin-top:5%;
     margin-left: 17%;
     margin-right: 17%;
+    margin-bottom: 7%;
 }
 
 #titrePanier{
@@ -388,39 +420,13 @@ header{
     justify-content: space-between;
 }
 
-/*css ajoutIdée*/
-
-#addIdea{
-    border: solid;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    margin-left: 20%;
-    margin-right: 20px;
-    width:50%;
-}
-
-#titreAjoutIdée{
-    display: flex;
-    justify-content: center;
-}
-
-#idée{
-    display: flex;
-    justify-content: center;
-}
-
-#titreIdée{
-    margin-left:10px;
-}
-
-#ajoutIdée{
-    display: flex;
-    margin-left: 45%;
-    width:80px;
-}
-
 /*css création event*/
+#base{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
 
 #coeur{
     display: flex;

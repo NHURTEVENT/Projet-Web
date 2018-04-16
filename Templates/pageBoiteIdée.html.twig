@@ -18,10 +18,10 @@
 
                 <nav id="navBar">
                     <ul id="ul">
-                        <li class="listeNav"><a href="#Fil d'actualité" >Fil d'actualité</a></li>
-                        <li class="listeNav"><a href="#Boutique" >Boutique</a></li>
-                        <li class="listeNav"><a href="#Evènement" >Evènement</a></li>
-                        <li class="listeNav"><a href="#Boite à idée" >Boite à idée</a></li>
+                        <li class="listeNav"><a href="pageAccueil.html.twig" >Fil d'actualité</a></li>
+                        <li class="listeNav"><a href="pageBoutique.html.twig" >Boutique</a></li>
+                        <li class="listeNav"><a href="pageEvent.html.twig" >Evènement</a></li>
+                        <li class="listeNav"><a href="pageBoiteIdée.html.twig" >Boite à idée</a></li>
                     </ul>
                 </nav>
             </section>
@@ -53,18 +53,22 @@
                             <button>Upvote</button>
                             <button>Upvote</button>
                         </section>
-
-                        <section id="créeEvent">
-                            <button>Créer évènement</button>
-                            <button>Créer évènement</button>
-                            <button>Créer évènement</button>
-                            <button>Créer évènement</button>
-                            <button>Créer évènement</button>
-                        </section>
+                        {{ modo = 0 }}
+                        {% if modo == 1 %}
+                            <section id="créeEvent">
+                                <button>Créer évènement</button>
+                                <button>Créer évènement</button>
+                                <button>Créer évènement</button>
+                                <button>Créer évènement</button>
+                                <button>Créer évènement</button>
+                            </section>
+                        {% endif %}
                     </section>
 
                     <section id="soumettre">
-                        <button>Soumettre Idée</button>
+                        Soumettre une idée:
+                        <input id="soumettreIdée">
+                        <button>Soumettre</button>
                     </section>
 
                 </section>
