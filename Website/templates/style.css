@@ -32,7 +32,7 @@ header{
     background-color: red;
 }
 
-/*css acceuil*/
+/*css accueil*/
 
 #enTete{
     display: flex;
@@ -88,26 +88,27 @@ header{
     }
 }
 
-/* css pageAcceuil && pageEventUnique*/
+/* css pageAccueil && pageEventUnique*/
+
 #main{
     display: flex;
     justify-content: space-between;
 }
 
-#evenement{
+.evenement{
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-left: 40%;
 }
 
-#imgEvent{
+.imgEvent{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-#bouton{
+.bouton{
     display: block;
     flex-direction: row;
 }
@@ -118,7 +119,7 @@ header{
     margin-right: 1%
 }
 
-#nomEvent{
+.nomEvent{
     display: flex;
     justify-content: center;
 }
@@ -271,7 +272,7 @@ header{
     height: fit-content;
 }
 
-#prodCom1{
+.prodCom1{
     border: solid;
     display: block;
     width: 200px;
@@ -295,6 +296,15 @@ header{
     display:flex;
     justify-content: center;
     margin-top: 5%;
+}
+
+#Prod, #prodPlusCommandé{
+    display: flex;
+    flex-direction: row;
+}
+
+#ajoutProd{
+
 }
 
 /*css Event*/
@@ -373,6 +383,7 @@ header{
     justify-content: space-between;
     margin: 2%
 }
+
 /*css connexion*/
 
 #connexion{
@@ -421,6 +432,7 @@ header{
 }
 
 /*css création event*/
+
 #base{
     display: flex;
     justify-content: space-between;

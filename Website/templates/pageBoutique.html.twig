@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
@@ -35,12 +36,15 @@
                 </section>
 
                 <section id="prodPlusCommandé">
-                    <section id="prodCom1">
-                        <p>ImageProduit</p>
-                        <p id="nomProd">Prod1</p>
-                        <p id="PrixProd">10€</p>
+                    {% for prod in 0..3 %}
+                    <section class="prodCom1">
+                        <p>{{ Prod.img }}</p>
+                        <p>{{ Prod.nom }}</p>
+                        <p>{{ Prod.prix }}</p>
                     </section>
+                    {% enfor %}
                 </section>
+
 
                 <section id="barre2">
                     <p id="Titre2">Autres articles:</p>
@@ -62,13 +66,21 @@
                 </section>
 
                 <section id="Prod">
-                    <section id="Prod1">
-                        <p>ImageProduit</p>
-                        <p id="nomProd">Prod1</p>
-                        <p id="PrixProd">10€</p>
-                        <button class="delete">supprimer</button>
+                    {% for prod in 0..{{ products }} %}
+                    <section class="Prod1">
+                        <p>{{ Prod.img }}</p>
+                        <p>{{ Prod.nom }}</p>
+                        <p>{{ Prod.prix}}</p>
+                        {% if modo == 1 and admin ==0 %}
+                            <button class="delete">Supprimer</button>
+                        {% endif %}
+                    </section>
+                    {% enfor %}
+                    <section id="ajoutProd">
+                        <button>Ajouter un produit</button>
                     </section>
                 </section>
+
             </section>
 
             <section id="aside">
