@@ -56,6 +56,20 @@ class EventController extends Controller {
         ));
     }
 
+    /**
+     * @Route("/eventofthemonth")
+     */
+    public function eventOfTheMonth(){
+        $repo = $this->getDoctrine()->getRepository(Event::class);
+        $events = $repo->eventOfTheMonth();
+
+        foreach ($events as $event){
+            echo $event->getTitle().", ";
+        }
+
+        return new Response('are the events this month');
+
+    }
 
 
     /** @Route("/events/add") */
@@ -103,7 +117,7 @@ class EventController extends Controller {
 
         $session = new Session();
 
-        LikeEventController::like($session->get('user_id'), $event_id);
+        LikedEventController::like($session->get('user_id'), $event_id);
 
     }
 
