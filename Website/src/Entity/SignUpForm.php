@@ -4,8 +4,15 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class SignUpForm {
+class SignUpInfo {
 
+    /** @Assert\NotBlank(message="Ce champ est obligatoire") */
+    protected $name;
+
+    /** @Assert\NotBlank(message="Ce champ est obligatoire") */
+    protected $surname;
+
+    /** @Assert\NotBlank(message="Ce champ est obligatoire") */
     protected $username;
 
     /** @Assert\Length(min=5, minMessage="Doit faire plus de 5 caractères")
@@ -14,7 +21,16 @@ class SignUpForm {
     */
     protected $password;
 
+    /** @Assert\NotBlank(message="Ce champ est obligatoire") */
     protected $email;
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getSurname() {
+        return $this->surname;
+    }
 
     public function getUsername() {
         return $this->username;
@@ -26,6 +42,14 @@ class SignUpForm {
 
     public function getEmail() {
         return $this->email;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function setSurname($surname) {
+        $this->surname = $surname;
     }
 
     public function setUsername($username) {
