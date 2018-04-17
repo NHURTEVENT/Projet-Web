@@ -47,4 +47,20 @@ class IdeaRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByUser($user_id){
+        return $this->createQueryBuilder('i')
+            ->where('i.user_id = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function sortByPopular(){
+        $qb = $this->createQueryBuilder('i')
+            ->orderBy('i.price','ASC')
+            ->getQuery();
+
+        return $qb->execute();
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use DoctrineExtensions\Query\Mysql\Month;
 
 /**
  * @method Event|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,24 @@ class EventRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function eventOfTheMonth(){
+
+        $emConfig = $this->getEntityManager()->getConfiguration();
+        $emConfig->addCustomDatetimeFunction('MONTH', 'DoctrineExtensions\Query\Mysql\Month');
+
+        $qb = $this->createQueryBuilder('e');
+        return $qb->where('MONTH(e.beginDate) = :month')
+            ->setParameter('month',date('m') )
+            ->getQuery()
+            ->getResult();
+
+
+       /* return $this->createQueryBuilder('e')
+            ->where('e.user_id = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->getQuery()
+            ->getOneOrNullResult();*/
+    }
+
 }
