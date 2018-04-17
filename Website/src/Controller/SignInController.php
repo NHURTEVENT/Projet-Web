@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\SignInInfo;
+use App\Entity\SignInForm;
 use App\Entity\User;
 
 // Required Components
@@ -28,7 +28,7 @@ class SignInController extends Controller {
 
         $session = new Session();
 
-        $userData = new SignInInfo();
+        $userData = new SignInForm();
 
         // Create Form
         $form = $this->createFormBuilder($userData)

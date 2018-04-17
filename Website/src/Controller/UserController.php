@@ -37,6 +37,13 @@ class UserController extends Controller{
 
         return new Response('User '.$username.' created!');
     }
+
+
+
+
+
+// TO REMOVE
+
     /**
      * @Route("/users/{username}")
      */

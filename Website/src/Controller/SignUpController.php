@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\SignUpInfo;
+use App\Entity\SignUpForm;
 use App\Entity\User;
 
 // Required Components
@@ -28,7 +28,7 @@ class SignUpController extends Controller {
 
         $session = new Session();
 
-        $userData = new SignUpInfo();
+        $userData = new SignUpForm();
 
         // Create Form
         $form = $this->createFormBuilder($userData)
@@ -60,15 +60,15 @@ class SignUpController extends Controller {
             } else {
 
                 // Create new user
-                $user = new User(
-                    $userData->getUsername(),
-                    $userData->getName(),
-                    $userData->getSurname(),
-                    $userData->getEmail(),
-                    $userData->getPassword(),
-                    0,
-                    0
-                );
+                $user = new User();
+
+                $user->setUsername($userData->getUsername());
+                $user->setName($userData->getName());
+                $user->setSurname($userData->getSurname());
+                $user->setEmail($userData->getEmail());
+                $user->setPassword($userData->getPassword());
+                $user->setAdmin(0);
+                $user->setModo(0);
 
                 // Add user to BDD
                 $em = $this->getDoctrine()->getManager();

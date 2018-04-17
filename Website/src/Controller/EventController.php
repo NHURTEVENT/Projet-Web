@@ -99,7 +99,11 @@ class EventController extends Controller {
 
     }
 
-    public function like() {
+    public function like($event_id) {
+
+        $session = new Session();
+
+        LikeEventController::like($session->get('user_id'), $event_id);
 
     }
 
