@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Nico
+ * User2: Nico
  * Date: 11/04/2018
  * Time: 15:20
  */
@@ -18,25 +18,39 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends Controller{
 
     /**
-     * @Route("/signin")
+     * @Route("/user/create/{username}/{name}/{surname}/{mail}/{password}")
      */
-
-    public function newAction()
+    public function createUser($username, $name, $surname, $mail, $password)
     {
-        $user = new User("moi","moi","même","moi@mail.com",0,1);
-        //$user->setUsername("user".rand(1,100));
+        $user = new User();
+        $user->setUsername($username);
+        $user->setName($name);
+        $user->setSurname($surname);
+        $user->setEmail($mail);
+        $user->setPassword($password);
+        $user->setAdmin(0);
+        $user->setModo(0);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
 
-        return new Response('User created!');
+        return new Response('User '.$username.' created!');
     }
+
+
+
+
+
+// TO REMOVE
+
     /**
      * @Route("/users/{username}")
      */
     public function showAction($username)
     {
+
+
         return new Response(''.$username);
     }
 
@@ -45,9 +59,13 @@ class UserController extends Controller{
      */
     public function checkUser($username, $password){
 
-        $qb = $this->getDoctrine()->getRepository('User');
-        $users = $qb->findAll();
+        $repo = $this->getDoctrine()->getRepository(User2::class);
+        //$user = $qb->find($username);
+        $user = $repo->findOneBy(['username'=>$username]);
 
+        if (!$user) {
+            return new Response('No user found for username '.$username);
+        }
 
             /*
         $queryBuilder
@@ -56,5 +74,30 @@ class UserController extends Controller{
             ->where('email = ?')
             ->setParameter(0, $userInputEmail)
         ;*/
+
+        else {
+
+            $password = $repo->findOneBy(['password'=>$password]);
+
+            if(!$password){
+                return new Response('Invalid password');
+            }
+            else{
+                return new Response("hi ".$user->getName().' '.$user->getSurname());
+            }
+        }
+    }
+
+    public function isUsernameAvailable($username){
+        $repo = $this->getDoctrine()->getRepository(User::class);
+        $user = $repo->findOneBy(['username'=>$username]);
+
+        if (!$user) {
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 }
