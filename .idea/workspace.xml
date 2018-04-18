@@ -12,6 +12,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/Website/composer.json</pharConfigPath>
+  </component>
   <component name="FileEditorManager">
 <<<<<<< HEAD
     <leaf>
@@ -358,6 +361,7 @@
       <option name="presentableId" value="Default" />
       <updated>1523471567936</updated>
       <workItem from="1523471573173" duration="1280000" />
+      <workItem from="1523950813182" duration="7904000" />
     </task>
     <servers />
   </component>

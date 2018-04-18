@@ -92,6 +92,7 @@
       <path value="$PROJECT_DIR$/Website/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/Website/vendor/symfony/twig-bundle" />
       <path value="$PROJECT_DIR$/Website/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/Website/vendor/beberlei/DoctrineExtensions" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

@@ -47,4 +47,20 @@ class SubscriptionRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByUser($user_id){
+        return $this->createQueryBuilder('s')
+            ->where('s.user_id = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function findByEvent($event_id){
+        return $this->createQueryBuilder('s')
+            ->where('s.event_id = :event_id')
+            ->setParameter('event_id', $event_id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

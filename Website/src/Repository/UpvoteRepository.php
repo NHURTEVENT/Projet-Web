@@ -47,4 +47,8 @@ class UpvoteRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function sortByPopularity(){
+
+    }
 }
