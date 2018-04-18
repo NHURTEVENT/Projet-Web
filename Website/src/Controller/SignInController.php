@@ -27,7 +27,6 @@ class SignInController extends Controller {
     public function signin(Request $request) {
 
         $session = new Session();
-
         $userData = new SignInForm();
 
         // Create Form

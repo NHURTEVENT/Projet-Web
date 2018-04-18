@@ -46,14 +46,45 @@ class EventController extends Controller {
     }
 
 
-    /** @Route("/event/{title}") */
-    public function viewEvent($title) {
 
-        $event = $this->retrieveEventByTitle($title);
+    /** @Route("/event/{event_id}") */
+    public function viewEvent($event_id, Request $request) {
+
+        /* THIS IS COMPLETELY USELESS NOW ...
+        $form = $this->createFormBuilder()
+        ->add('like', SubmitType::class, array('label' => 'Like'))
+        ->getForm();
+
+        $form->handleRequest($request);
+        $event = $this->retrieveEventById($event_id);
+        */
+
+        if ($request->isXmlHttpRequest()) {
+
+            $this->like($event_id);
+            return new Response("+1",200);
+
+        }
+
+        /* THIS IS KINDA USELESS NOW ... Sooo Saad
+        if($form->get('like')->isClicked()) {
+
+            $this->like($event);
+
+        }
+        */
+
+        // return $this->render('form.html.twig', array('form' => $form->createView()));
+
+        return $this->render('testTemplates/like.html.twig');
+
+        /*  TO UNCOMMENT LATER
         return $this->render('event.html.twig', array(
             'event' => $event,
-            'comments' => $this->getAllComments($event->getId())
+            'comments' => $this->getAllComments($event->getId()),
+            'like_button' => $form->createView()
         ));
+        */
     }
 
     /**
@@ -113,11 +144,15 @@ class EventController extends Controller {
 
     }
 
-    public function like($event_id) {
+    public function like($event) {
 
         $session = new Session();
 
-        LikedEventController::like($session->get('user_id'), $event_id);
+        if(NULL !== $session->get('user')) {
+            LikeEventController::like($session->get('user'), $event);
+        } else {
+            // User is NOT connected
+        }
 
     }
 
@@ -127,9 +162,9 @@ class EventController extends Controller {
         $em->flush();
     }
 
-    public function retrieveEventByTitle($title) {
+    public function retrieveEventById($event_id) {
         $qb = $this->getDoctrine()->getRepository(Event::class);
-        return $qb->findOneBy(['title' => $title]);
+        return $qb->find($event_id);
     }
 
     public function retrieveAllEvents() {
