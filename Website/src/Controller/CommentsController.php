@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\CommentFormInfo;
+use App\Entity\CommentForm;
 use App\Entity\Comment;
 use App\Entity\Event;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ class CommentsController extends Controller {
     public function addComment(Request $request, $title) {
 
         $session = new Session();
-        $formData = new CommentFormInfo();
+        $formData = new CommentForm();
 
         // Create Form
         $form = $this->createFormBuilder($formData)
@@ -33,8 +33,8 @@ class CommentsController extends Controller {
 
             $commentInfo = new Comment();
             $commentInfo->setText($formData->getText());
-            $commentInfo->setId_user($session->get('id_user'));
-            $commentInfo->setId_event($this->retrieveEventByTitle($title));
+            $commentInfo->setUserId($session->get('user'));
+            $commentInfo->setEventId($this->retrieveEventByTitle($title));
             $commentInfo->setReported(false);
 
             $this->publishComment($commentInfo);

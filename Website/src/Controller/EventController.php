@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-use App\Entity\EventFormInfo;
+use App\Entity\EventForm;
 use App\Entity\Comment;
 use App\Entity\Event;
 
@@ -46,14 +46,45 @@ class EventController extends Controller {
     }
 
 
-    /** @Route("/event/{title}") */
-    public function viewEvent($title) {
 
-        $event = $this->retrieveEventByTitle($title);
+    /** @Route("/event/{event_id}") */
+    public function viewEvent($event_id, Request $request) {
+
+        /* THIS IS COMPLETELY USELESS NOW ...
+        $form = $this->createFormBuilder()
+        ->add('like', SubmitType::class, array('label' => 'Like'))
+        ->getForm();
+
+        $form->handleRequest($request);
+        $event = $this->retrieveEventById($event_id);
+        */
+
+        if ($request->isXmlHttpRequest()) {
+
+            $this->like($event_id);
+            return new Response("+1",200);
+
+        }
+
+        /* THIS IS KINDA USELESS NOW ... Sooo Saad
+        if($form->get('like')->isClicked()) {
+
+            $this->like($event);
+
+        }
+        */
+
+        // return $this->render('form.html.twig', array('form' => $form->createView()));
+
+        return $this->render('testTemplates/like.html.twig');
+
+        /*  TO UNCOMMENT LATER
         return $this->render('event.html.twig', array(
             'event' => $event,
-            'comments' => $this->getAllComments($event->getId())
+            'comments' => $this->getAllComments($event->getId()),
+            'like_button' => $form->createView()
         ));
+        */
     }
 
     /**
@@ -75,7 +106,7 @@ class EventController extends Controller {
     /** @Route("/events/add") */
     public function addEvent(Request $request) {
 
-        $formData = new EventFormInfo();
+        $formData = new EventForm();
 
         // Create Form
         $form = $this->createFormBuilder($formData)
@@ -93,31 +124,39 @@ class EventController extends Controller {
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $event = new Event(
-                $formData->getTitle(),
-                $formData->getDescription(),
-                $formData->getBeginDate(),
-                $formData->getEndDate(),
-                $formData->isPonctual(),
-                $formData->isFree(),
-                $formData->getPrice()
-                // TODO USER ID
-            );
+            $event = new Event();
+            $event->setTitle($formData->getTitle());
+            $event->setDescription($formData->getDescription());
+            $event->setBeginDate($formData->getBeginDate());
+            $event->setEndDate($formData->getEndDate());
+            $event->setPonctual($formData->isPonctual());
+            $event->setFree($formData->isFree());
+            $event->setPrice($formData->getPrice());
+            $event->setReported(false);
+            // TODO ADD USER ID
 
-            $this->addEventToDB($event);
+            //$this->addEventToDB($event);
 
-            return $this->render('testTemplates/success.html.twig', array('msg' => '...'));
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($event);
+            $em->flush();
+
+            return $this->render('testTemplates/status.html.twig', array('status' => 'Success', 'msg' => 'Yay!'));
         }
 
         return $this->render('form.html.twig', array('form' => $form->createView()));
 
     }
 
-    public function like($event_id) {
+    public function like($event) {
 
         $session = new Session();
 
-        LikedEventController::like($session->get('user_id'), $event_id);
+        if(NULL !== $session->get('user')) {
+            LikeEventController::like($session->get('user'), $event);
+        } else {
+            // User is NOT connected
+        }
 
     }
 
@@ -127,9 +166,9 @@ class EventController extends Controller {
         $em->flush();
     }
 
-    public function retrieveEventByTitle($title) {
+    public function retrieveEventById($event_id) {
         $qb = $this->getDoctrine()->getRepository(Event::class);
-        return $qb->findOneBy(['title' => $title]);
+        return $qb->find($event_id);
     }
 
     public function retrieveAllEvents() {

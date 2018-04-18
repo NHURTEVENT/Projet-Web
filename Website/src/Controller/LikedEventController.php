@@ -7,8 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class LikedEventController extends Controller {
 
+    public function like($user_id, $event_id) {
 
 
+
+    }
 }
 
  ?>
