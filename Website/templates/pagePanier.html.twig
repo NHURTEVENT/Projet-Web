@@ -4,6 +4,9 @@
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
         <title>Panier</title>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
 
     <body>
@@ -30,39 +33,84 @@
                 </nav>
             </section>
         </header>
-        <section id="Panier">
-            <section id="titrePanier">
-                <a>Mon panier</a>
-            </section>
 
-            <section id="produitAcheté">
-                {% for Produit in 0..{{ Produit.Nombre }} %}
-                <section class="produit">
-                    <a class="nomProduit">{{ Produit.Nom }}</a>
-                    <a class="quantitéProduit">{{ Produit.Quantite }}</a>
-                    <a class="prixProduit">{{ Produit.Prix }}</a>
-                    <button class="delete">Supprimer</button>
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+            <section class="container">
+                <section class="row">
+                    <section class="col-xs-8">
+                        <section class="panel panel-info">
+                            <section class="panel-heading">
+                                <section class="panel-title">
+                                    <section class="row">
+                                        <article class="col-xs-6">
+                                            <h5><span class="glyphicon glyphicon-shopping-cart"></span> Mon panier</h5>
+                                        </article>
+                                        <article class="col-xs-6">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">
+                                                <span class="glyphicon glyphicon-share-alt"></span> Continuer mes achats
+                                            </button>
+                                        </article>
+                                    </section>
+                                </section>
+                            </section>
+                            <section class="panel-body">
+                                {% for Product in 0..{{ Produit.NombreTotal }} %}
+                                <section class="row">
+                                    <article class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
+                                    </article>
+                                    <article class="col-xs-4">
+                                        <h4 class="product-name"><strong>{{ Produit.Nom }}</strong></h4><h4><small>{{ Produit.Description }}</small></h4>
+                                    </article>
+                                    <section class="col-xs-6">
+                                        <article class="col-xs-6 text-right">
+                                            <h6><strong>{{ Produit.Prix }} <span class="text-muted">x</span></strong></h6>
+                                        </article>
+                                        <article class="col-xs-4">
+                                            <input type="text" class="form-control input-sm" value="1">
+                                        </article>
+                                        <article class="col-xs-2">
+                                            <button type="button" class="btn btn-link btn-xs">
+                                                <span class="glyphicon glyphicon-trash"> </span>
+                                            </button>
+                                        </article>
+                                    </section>
+                                </section>
+                                <hr>
+                                {% enfor %}
+                                <hr>
+                            </section>
+                            <section class="panel-footer">
+                                <section class="row text-center">
+                                    <article class="col-xs-9">
+                                        <h4 class="text-right">Total <strong>{{ Panier.PrixTotal }}</strong></h4>
+                                    </article>
+                                    <article class="col-xs-3">
+                                        <button type="button" class="btn btn-success btn-block">
+                                            Commander
+                                        </button>
+                                    </article>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
                 </section>
-                {% enfor %}
-
-                <section id="prixTotal">
-                    {% for Produit in 0..{{ Produit.Nombre }} %}
-                        {{ PrixTotal }}={{ PrixTotal }}+{{ Produit.Prix }}
-                    {% enfor %}
-                    <a id="Total">{{ PrixTotal }}</a>
-                </section>
             </section>
 
-            <section id="choix">
-                <button id="continuerAchat">Continuer achat</button>
-                <button id="commander">Commander</button>
-            </section>
-
-        </section>
         <footer>
-            <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
-            <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+            <section class="container">
+                <hr />
+                <article class="text-center center-block">
+                    Nous contacter :
+                    <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs"><i class="fa fa-facebook-square fa-3x social"></i></a>
+                    <a href="https://twitter.com/bdecesi_tls"><i class="fa fa-twitter-square fa-3x social"></i></a>
+                    <a href="mailto:bde-toulouse@viacesi.fr"><i class="fa fa-envelope-square fa-3x social"></i></a>
+                </article>
+                <hr />
+            </section>
         </footer>
     </body>
-
 </html>

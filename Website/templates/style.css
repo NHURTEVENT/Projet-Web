@@ -32,9 +32,7 @@ header{
     background-color: white;
 }
 
-footer{
-    background-color: white;
-}
+
 
 /*css accueil*/
 
@@ -213,7 +211,7 @@ footer{
     flex-direction: row;
 }
 
-#container{
+.container{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
