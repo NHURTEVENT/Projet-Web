@@ -249,9 +249,9 @@ footer{
     height: 250px;
 }
 
-#prod{
+.prod{
     border: solid;
-    display: block;
+    display: inline-block;
     width: 200px;
     height: 250px;
 }
