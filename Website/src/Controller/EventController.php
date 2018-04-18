@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-use App\Entity\EventFormInfo;
+use App\Entity\EventForm;
 use App\Entity\Comment;
 use App\Entity\Event;
 
@@ -106,7 +106,7 @@ class EventController extends Controller {
     /** @Route("/events/add") */
     public function addEvent(Request $request) {
 
-        $formData = new EventFormInfo();
+        $formData = new EventForm();
 
         // Create Form
         $form = $this->createFormBuilder($formData)
@@ -124,20 +124,24 @@ class EventController extends Controller {
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $event = new Event(
-                $formData->getTitle(),
-                $formData->getDescription(),
-                $formData->getBeginDate(),
-                $formData->getEndDate(),
-                $formData->isPonctual(),
-                $formData->isFree(),
-                $formData->getPrice()
-                // TODO USER ID
-            );
+            $event = new Event();
+            $event->setTitle($formData->getTitle());
+            $event->setDescription($formData->getDescription());
+            $event->setBeginDate($formData->getBeginDate());
+            $event->setEndDate($formData->getEndDate());
+            $event->setPonctual($formData->isPonctual());
+            $event->setFree($formData->isFree());
+            $event->setPrice($formData->getPrice());
+            $event->setReported(false);
+            // TODO ADD USER ID
 
-            $this->addEventToDB($event);
+            //$this->addEventToDB($event);
 
-            return $this->render('testTemplates/success.html.twig', array('msg' => '...'));
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($event);
+            $em->flush();
+
+            return $this->render('testTemplates/status.html.twig', array('status' => 'Success', 'msg' => 'Yay!'));
         }
 
         return $this->render('form.html.twig', array('form' => $form->createView()));

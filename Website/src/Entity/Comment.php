@@ -65,12 +65,12 @@ class Comment
         return $this;
     }
 
-    public function getUserId(): ?string
+    public function getUserId(): ?int
     {
         return $this->user_id;
     }
 
-    public function setUserId(string $user_id): self
+    public function setUserId(int $user_id): self
     {
         $this->user_id = $user_id;
 

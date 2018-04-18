@@ -80,7 +80,7 @@ class SignUpController extends Controller {
 
                 // Redirect to home page
                 //return $this->redirectToRoute('home');
-                return $this->render('testTemplates/success.html.twig', array('msg' => 'Successfully created new user'));
+                return $this->render('testTemplates/status.html.twig.twig', array('msg' => 'Successfully created new user'));
             }
         }
         return $this->render('form.html.twig', array('form' => $form->createView()));
