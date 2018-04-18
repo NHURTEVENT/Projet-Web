@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
+        <title>Accueil</title>
     </head>
 
     <body>
@@ -29,29 +31,29 @@
             </section>
         </header>
             <section id="main">
+                {% for event in 0..{{ Event.Nombre }} %}
+                <section class="evenement">
 
-                <section id="evenement">
-
-                    <section id="imgEvent">
+                    <section class="imgEvent">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent"/>
                     </section>
 
-                    <section id="bouton">
-                        <a id="nomEvent">Nom évènement</a>
-                        <button id="Signal">Signaler</button>
+                    <section class="bouton">
+                        <a class="nomEvent">{{ Event.Nom }}</a>
+                        <button class="Signal">Signaler</button>
                     </section>
 
-                    <section id="description">
-                        <a>Description</a>
+                    <section class="description">
+                        <a>{{ Event.Description }}</a>
                     </section>
 
-                    <section id="commentaire">
+                    <section class="commentaire">
                         <button class="like">Like</button>
-                        <a>Commentaire</a>
+                        <a>{{ Event.Commentaire }}</a>
                     </section>
 
                 </section>
-
+                {% enfor %}
                 <section id="aside">
 
                     <section id="boiteIdée">
@@ -63,7 +65,8 @@
                     </section>
                 </section>
             </section>
-        <footer id="footer">
+
+        <footer>
             <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
             <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
         </footer>

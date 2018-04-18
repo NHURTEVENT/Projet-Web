@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+        <title>Boutique</title>
     </head>
 
     <body>
@@ -37,7 +38,7 @@
 
                 <section id="prodPlusCommandé">
                     {% for prod in 0..3 %}
-                    <section class="prodCom1">
+                    <section class="prodCom">
                         <p>{{ Prod.img }}</p>
                         <p>{{ Prod.nom }}</p>
                         <p>{{ Prod.prix }}</p>
@@ -67,18 +68,20 @@
 
                 <section id="Prod">
                     {% for prod in 0..{{ products }} %}
-                    <section class="Prod1">
-                        <p>{{ Prod.img }}</p>
-                        <p>{{ Prod.nom }}</p>
-                        <p>{{ Prod.prix}}</p>
-                        {% if modo == 1 and admin ==0 %}
-                            <button class="delete">Supprimer</button>
-                        {% endif %}
-                    </section>
+                        <section class="Prod">
+                            <p>{{ Prod.img }}</p>
+                            <p>{{ Prod.nom }}</p>
+                            <p>{{ Prod.prix}}</p>
+                            {% if modo == 1 and admin ==0 %}
+                                <button class="delete">Supprimer</button>
+                            {% endif %}
+                        </section>
                     {% enfor %}
+                    {% if modo == 1 and admin ==0 %}
                     <section id="ajoutProd">
-                        <button>Ajouter un produit</button>
+                            <button>Ajouter un produit</button>
                     </section>
+                    {% endif %}
                 </section>
 
             </section>
@@ -96,7 +99,7 @@
 
         </section>
 
-        <footer id="footer">
+        <footer>
             <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
             <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
         </footer>

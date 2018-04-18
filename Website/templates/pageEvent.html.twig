@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
+        <title>Evènement</title>
     </head>
 
     <body>
@@ -23,22 +25,27 @@
                         <li class="listeNav"><a href="pageEvent.html.twig" >Evènement</a></li>
                         <li class="listeNav"><a href="pageBoiteIdée.html.twig" >Boite à idée</a></li>
                     </ul>
+                </nav>
             </section>
         </header>
 
         <section id="center">
             <section id="container">
+                {% if modo == 1 and admin == 0 %}
                 <section id="barreAddEvent">
                     Ajouter un évènement:
                     <button id="ajoutEvent">+</button>
                 </section>
+                {% endif %}
                 <a id="Titre1">Evènement passés</a>
 
-                <section id="Passé">
-                    <section id="eventPassé1">
-                        <a id="imageEvent">ImageEvent</a>
-                        <a id="Nom">Titre Event</a>
+                <section id="Passe">
+                    {% for Event in 0..{{ Event.Passe }} %}
+                    <section class="eventPasse">
+                        <a class="imageEvent">{{ Event.img }}</a>
+                        <a class="Nom">{{ Event.Nom }}</a>
                     </section>
+                    {% enfor %}
                 </section>
 
                 <section id="barre2">
@@ -46,25 +53,12 @@
                 </section>
 
                 <section id="Futur">
+                    {% for Event in 0..{{ Event.Futur }}%}
                     <section class="event">
-                        <a id="imageEvent">Image Event</a>
-                        <a id="Nom">Titre Event</a>
+                        <img src="{{ Event.img }}" class="imageEvent">
+                        <a class="Nom">{{ Event.Nom }}</a>
                     </section>
-
-                    <section class="event">
-                        <a id="imageEvent">Image Event</a>
-                        <a id="Nom">Titre Event</a>
-                    </section>
-
-                    <section class="event">
-                        <a id="imageEvent">Image Event</a>
-                        <a id="Nom">Titre Event</a>
-                    </section>
-
-                    <section class="event">
-                        <a id="imageEvent">Image Event</a>
-                        <a id="Nom">Titre Event</a>
-                    </section>
+                    {% enfor %}
                 </section>
             </section>
 
@@ -80,7 +74,7 @@
             </section>
         </section>
 
-        <footer id="footer">
+        <footer>
             <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
             <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
         </footer>

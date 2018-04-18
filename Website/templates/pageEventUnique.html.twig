@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
+        <title>Evènement</title>
     </head>
 
     <body>
@@ -33,22 +35,24 @@
             <section id="evenement">
 
                 <section id="imgEvent">
-                    <a id="nomEvent">Nom évènement</a>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent"/>
+                    <a id="nomEvent">{{ Event.Nom }}</a>
+                    <img src="{{ Event.img }}" alt="imageEvent"/>
                 </section>
 
                 <section id="bouton">
                     <button id="ajouterImage">Ajouter image à l'album</button>
+                    {% if modo == 1 and admin == 0 %}
                     <button id="Signal">Signaler</button>
+                    {% endif %}
                 </section>
 
                 <section id="description">
-                    <a>Description</a>
+                    <a>{{ Event.Description }}</a>
                 </section>
 
                 <section id="commentaire">
                     <button class="like">Like</button>
-                    <a>Commentaire</a>
+                    <a>{{ Event.Commentaire }}</a>
                 </section>
 
             </section>
@@ -64,7 +68,7 @@
                 </section>
             </section>
         </section>
-        <footer id="footer">
+        <footer>
             <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
             <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
         </footer>

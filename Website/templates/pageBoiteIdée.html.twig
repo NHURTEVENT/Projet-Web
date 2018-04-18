@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
+        <title>Boite à idée</title>
     </head>
 
     <body>
@@ -36,30 +38,24 @@
 
                     <section id="choix">
 
-                        <section id="listeIdée">
+                        <section id="listeIdee">
                             <ul id="liste">
-                                <li class="idée"><a href="#Idée1">Idée1</a></li>
-                                <li class="idée"><a href="#Idée2">Idée2</a></li>
-                                <li class="idée"><a href="#Idée3">Idée3</a></li>
-                                <li class="idée"><a href="#Idée4">Idée4</a></li>
-                                <li class="idée"><a href="#Idée5">Idée5</a></li>
+                                {% for Idea in 0..{{ Idea.Nombre }} %}
+                                <li class="idée"><a href="#Idée">{{ Idea.Title }}</a></li>
+                                {% enfor %}
                             </ul>
                         </section>
 
                         <section id="upvote">
+                            {% for Idea in 0..{{ Idea.Nombre }} %}
                             <button>Upvote</button>
-                            <button>Upvote</button>
-                            <button>Upvote</button>
-                            <button>Upvote</button>
-                            <button>Upvote</button>
+                            {% enfor %}
                         </section>
                         {% if modo == 1 %}
-                            <section id="créeEvent">
+                            <section id="creeEvent">
+                                {% for Idea in 0..{{ Idea.Nombre }} %}
                                 <button>Créer évènement</button>
-                                <button>Créer évènement</button>
-                                <button>Créer évènement</button>
-                                <button>Créer évènement</button>
-                                <button>Créer évènement</button>
+                                {% enfor %}
                             </section>
                         {% endif %}
                     </section>
@@ -74,7 +70,7 @@
 
                 <section id="aside">
 
-                    <section id="boiteIdée">
+                    <section id="boiteIdee">
                         <a>Boite à Idées</a>
                     </section>
 
@@ -84,7 +80,7 @@
                 </section>
             </section>
 
-        <footer id="footer">
+        <footer>
             <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
             <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
         </footer>

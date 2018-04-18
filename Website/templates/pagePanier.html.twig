@@ -1,8 +1,9 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
+        <title>Panier</title>
     </head>
 
     <body>
@@ -35,22 +36,20 @@
             </section>
 
             <section id="produitAcheté">
+                {% for Produit in 0..{{ Produit.Nombre }} %}
                 <section class="produit">
-                    <a id="nomProduit">Nom Produit</a>
-                    <a id="quantitéProduit">Quantité Produit</a>
-                    <a id="prixProduit">Prix Produit</a>
-                    <button id="delete">Supprimer</button>
+                    <a class="nomProduit">{{ Produit.Nom }}</a>
+                    <a class="quantitéProduit">{{ Produit.Quantite }}</a>
+                    <a class="prixProduit">{{ Produit.Prix }}</a>
+                    <button class="delete">Supprimer</button>
                 </section>
-
-                <section class="produit">
-                    <a id="nomProduit">Nom Produit</a>
-                    <a id="quantitéProduit">Quantité Produit</a>
-                    <a id="prixProduit">Prix Produit</a>
-                    <button id="delete">Supprimer</button>
-                </section>
+                {% enfor %}
 
                 <section id="prixTotal">
-                    <a id="Total">Prix total</a>
+                    {% for Produit in 0..{{ Produit.Nombre }} %}
+                        {{ PrixTotal }}={{ PrixTotal }}+{{ Produit.Prix }}
+                    {% enfor %}
+                    <a id="Total">{{ PrixTotal }}</a>
                 </section>
             </section>
 
@@ -60,7 +59,7 @@
             </section>
 
         </section>
-        <footer id="footer">
+        <footer>
             <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
             <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
         </footer>
