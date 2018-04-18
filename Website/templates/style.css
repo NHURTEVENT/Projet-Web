@@ -187,13 +187,6 @@ footer{
     margin-left: 20%;
 }
 
-.container{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-left: 20%;
-}
-
 #dropbtn{
     width: fit-content;
     font-size: 16px;
@@ -249,13 +242,6 @@ footer{
     height: 250px;
 }
 
-#container .item{
-    border: 1px solid;
-    display: inline-block;
-    margin: 0 8px 15px;
-    width: 170px;
-}
-
 #barre2{
     display: flex;
     justify-content: space-between;
@@ -275,11 +261,11 @@ footer{
     width: 580px;
 }
 
-#prodPlusCommandé{
-    display: flex;
-    margin: 0 auto 100px;
-    padding: 10px 25px;
-    width: 580px;
+#container .item{
+    border: 1px solid;
+    display: inline-block;
+    margin: 0 8px 15px;
+    width: 170px;
 }
 
 /*css Event*/
@@ -291,9 +277,11 @@ footer{
     margin-left:20%
 }
 
-#Passe{
-    display: flex;
-    flex-direction: row;
+#Passe, #Futur{
+    cursor: default;
+    margin: 0 auto 100px;
+    padding: 10px 25px;
+    width: 580px;
 }
 
 .eventPasse, .event{
@@ -308,12 +296,6 @@ footer{
 .Nom{
     display: flex;
     padding-top: 20px;
-}
-
-#Futur{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
 }
 
 #ajoutEvent{
@@ -400,6 +382,13 @@ footer{
 
 #prixTotal{
     margin-bottom: 5px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 20%;
 }
 
 /*css création event*/

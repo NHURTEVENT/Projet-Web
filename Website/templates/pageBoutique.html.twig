@@ -38,7 +38,22 @@
 
                 <section id="prodPlusCommandé">
                     <!--{% for prod in 0..3 %}-->
-                    <section class="prodCom">
+                    <section class="item ng-scope">
+                        <p>{{ Prod.img }}</p>
+                        <p>{{ Prod.nom }}</p>
+                        <p>{{ Prod.prix }}</p>
+                    </section>
+                    <section class="item ng-scope">
+                        <p>{{ Prod.img }}</p>
+                        <p>{{ Prod.nom }}</p>
+                        <p>{{ Prod.prix }}</p>
+                    </section>
+                    <section class="item ng-scope">
+                        <p>{{ Prod.img }}</p>
+                        <p>{{ Prod.nom }}</p>
+                        <p>{{ Prod.prix }}</p>
+                    </section>
+                    <section class="item ng-scope">
                         <p>{{ Prod.img }}</p>
                         <p>{{ Prod.nom }}</p>
                         <p>{{ Prod.prix }}</p>
@@ -68,7 +83,7 @@
 
                 <section id="Prod">
                     <!--{% for prod in 0..{{ products }} %}-->
-                        <article class="item ng-scope">
+                        <section class="item ng-scope">
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
@@ -76,8 +91,8 @@
                             <!--{% if modo == 1 and admin ==0 %}-->
                                 <button class="delete">Supprimer</button>
                             <!--{% endif %}-->
-                        </article>
-                        <article class="item ng-scope">
+                        </section>
+                        <section class="item ng-scope">
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
@@ -85,8 +100,8 @@
                             <!--{% if modo == 1 and admin ==0 %}-->
                             <button class="delete">Supprimer</button>
                             <!--{% endif %}-->
-                        </article>
-                        <article class="item ng-scope">
+                        </section>
+                        <section class="item ng-scope">
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
@@ -94,8 +109,8 @@
                             <!--{% if modo == 1 and admin ==0 %}-->
                             <button class="delete">Supprimer</button>
                             <!--{% endif %}-->
-                        </article>
-                        <article class="item ng-scope">
+                        </section>
+                        <section class="item ng-scope">
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
@@ -103,8 +118,8 @@
                             <!--{% if modo == 1 and admin ==0 %}-->
                             <button class="delete">Supprimer</button>
                             <!--{% endif %}-->
-                        </article>
-                        <article class="item ng-scope" ng-repeat="i in items">
+                        </section>
+                        <section class="item ng-scope">
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
@@ -112,7 +127,7 @@
                             <!--{% if modo == 1 and admin ==0 %}-->
                             <button class="delete">Supprimer</button>
                             <!--{% endif %}-->
-                        </article>
+                        </section>
                     <!--{% endfor %}-->
                     <!--{% if modo == 1 and admin ==0 %}-->
                     <article id="ajoutProd">
