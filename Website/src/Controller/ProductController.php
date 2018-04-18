@@ -31,21 +31,30 @@ class ProductController extends Controller
         $product = new Product();
         $product->setPopularity(0);
 
+        $repo = $this->getDoctrine()->getRepository(Product::class);
+        $products = $repo->findAllCategories();
+
         $form = $this->createFormBuilder($product)
             ->add('title', TextType::class)
             ->add('description', TextType::class)
             ->add('price', NumberType::class)
-            //->add('category', ChoiceType::class, CategoryController::class->findAll()) //doesn't work
+            //->add('category', ChoiceType::class, $products) //doesn't work
             ->add('save', SubmitType::class, array('label' => 'Create product'))
             //TODO combobox catégorie
             ->getForm();
+
+        //echo $this->forward('App\Controller\CategoryController::findAll');
+        /*foreach ($products as $prod){
+        echo $prod;
+
+        }*/
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
-            return new Response('Product added successfuly');
+            return new Response('Product added successfully',array());
         }
 
         $build['form'] = $form->createView();
