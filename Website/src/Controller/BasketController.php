@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Basket;
+use App\Entity\Product;
 use App\Form\Basket1Type;
 use App\Repository\BasketRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -16,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BasketController extends Controller
 {
     /**
-     * @Route("/", name="basket_index", methods="GET")
+     * @Route("/", name="basket_index2", methods="GET")
      */
     public function index(BasketRepository $basketRepository): Response
     {
@@ -75,16 +77,24 @@ class BasketController extends Controller
     }
 
     /**
-     * @Route("/{user_id}", name="basket_delete", methods="DELETE")
+     * @Route("/{product}", name="basket_delete", methods="DELETE")
      */
-    public function delete(Request $request, Basket $basket): Response
+    public function delete(Request $request, $product): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$basket->getUser_id(), $request->request->get('_token'))) {
+        $session = new Session();
+        $productEntity = $this->getDoctrine()->getRepository(Product::class)->find($product);
+        $basket = $this->getDoctrine()->getRepository(Basket::class)->findBasketEntry($session->get('user'),$productEntity);
+
+        if ($this->isCsrfTokenValid('delete'.$basket->getProduct_id()->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($basket);
             $em->flush();
-        }
+
 
         return $this->redirectToRoute('basket_index');
+        }
+        else{
+            return new Response("invalid token");
+        }
     }
 }

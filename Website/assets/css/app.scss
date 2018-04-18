@@ -245,18 +245,15 @@ footer{
 
 .prodCom{
   display: block;
-  color: #222222;
   width: 200px;
   height: 250px;
 }
 
-.Prod{
-  border: solid;
-  color: #222222;
-  margin : 0px 8px 15px;
+#container .item{
+  border: 1px solid;
   display: inline-block;
-  width: 200px;
-  height: 250px;
+  margin: 0 8px 15px;
+  width: 170px;
 }
 
 #barre2{
@@ -271,10 +268,18 @@ footer{
   margin-top: 5%;
 }
 
-#Prod, #prodPlusCommandé{
+#container{
+  cursor: default;
+  margin: 0 auto 100px;
+  padding: 10px 25px;
+  width: 580px;
+}
+
+#prodPlusCommandé{
   display: flex;
-  flex-direction: column;
-  width: 500px;
+  margin: 0 auto 100px;
+  padding: 10px 25px;
+  width: 580px;
 }
 
 /*css Event*/
@@ -462,23 +467,23 @@ footer{
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 700px) {
-  #aside {
-    position: absolute;
+@media screen and (max-width: 700px){
+  #aside{
+    position:absolute;
     left: -999em;
   }
 
-  .evenement {
-    margin-left: 0px;
+  .evenement{
+    margin-left:0px;
   }
 
-  #navBar {
+  #navBar{
     width: 100%;
     padding: 8px 0;
     border-right: 1px solid #ddd;
   }
 
-  #navBar a {
+  #navBar a{
     color: white;
     -webkit-transition: all 0.08s linear;
     -moz-transition: all 0.08s linear;
@@ -489,25 +494,26 @@ footer{
     border-radius: 4px 0 0 4px;
   }
 
-  #navBar a:hover {
+  #navBar a:hover{
     background-color: darkorange;
   }
 
-  #img {
-    width: 0px;
-    height: 0px;
+  #img{
+    width:0px;
+    height:0px;
   }
 
-  footer {
-    margin-left: 1px;
+  footer{
+    margin-left:1px;
   }
 
-  #Passe, #Futur {
+  #Passe, #Futur{
     display: flex;
     flex-direction: column;
   }
 
-  .eventPasse, .event {
+  .eventPasse, .event{
     margin-bottom: 3px;
   }
+
 }

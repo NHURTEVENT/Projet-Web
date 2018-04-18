@@ -17,8 +17,8 @@
             <tr>
                 <td>{{ basket.quantity }}</td>
                 <td>
-                    <a href="{{ path('basket_show', {'user_id': basket.user_id}) }}">show</a>
-                    <a href="{{ path('basket_edit', {'user_id': basket.user_id}) }}">edit</a>
+                    <a href="{{ path('basket_show', {'user_id': basket.user_id.getUsername}) }}">show</a>
+                    <a href="{{ path('basket_edit', {'user_id': basket.user_id.getUsername}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

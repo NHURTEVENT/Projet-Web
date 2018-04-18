@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Basket;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -15,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProductController extends Controller
 {
+
     /**
      * @Route("/", name="product_index", methods="GET")
      */
@@ -290,6 +293,34 @@ class ProductController extends Controller
         $products = $repo->findAll();
 
         return $products;
+    }
+
+    /**
+     * @Route("/basket/",name="basket_index")
+     */
+    public function getBasket(){
+
+        $session = new Session();
+        $user = $session->get('user');
+
+        if($user) {
+            $repo = $this->getDoctrine()->getRepository(Basket::class);
+            $product = $repo->findBasket($user);
+
+            //var_dump($products);
+            //var_dump($products);
+
+            /*
+            foreach ($products as $prod){
+                echo $prod['Title'];
+            }*/
+            //var_dump($user);
+            //return new Response("hi");
+            return $this->render('basket/show.html.twig', array('baskets' => $product));
+        }
+        else{
+            return new Response("You must be loged in to consult your basket");
+        }
     }
 
 }

@@ -47,7 +47,7 @@ class Basket
     /**
      * @return mixed
      */
-    public function getProductId()
+    public function getproduct_id()
     {
         return $this->product_id;
     }

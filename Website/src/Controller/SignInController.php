@@ -56,8 +56,10 @@ class SignInController extends Controller {
                 $session->set('email', $user->getEmail());
                 $session->set('is_admin', $user->getAdmin());
                 $session->set('is_mod', $user->getModo());
+                $session->set('user',$user);
 
-                return $this->render('testTemplates/success.html.twig', array('msg' => 'Successfully connected to '));
+                //return $this->render('testTemplates/success.html.twig', array('msg' => 'Successfully connected to '));
+                return $this->render('pageAccueil.html.twig',array());
             } else {
 
                 $session->set('signin', false);
