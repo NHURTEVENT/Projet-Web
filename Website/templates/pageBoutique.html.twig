@@ -37,13 +37,13 @@
                 </section>
 
                 <section id="prodPlusCommandé">
-                    {% for prod in 0..3 %}
+                    <!--{% for prod in 0..3 %}-->
                     <section class="prodCom">
                         <p>{{ Prod.img }}</p>
                         <p>{{ Prod.nom }}</p>
                         <p>{{ Prod.prix }}</p>
                     </section>
-                    {% enfor %}
+                    <!--{% enfor %}-->
                 </section>
 
 
@@ -67,22 +67,58 @@
                 </section>
 
                 <section id="Prod">
-                    {% for prod in 0..{{ products }} %}
-                        <article class="prod">
+                    <!--{% for prod in 0..{{ products }} %}-->
+                        <article class="item ng-scope">
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
                             <button>Ajouter au panier</button>
-                            {% if modo == 1 and admin ==0 %}
+                            <!--{% if modo == 1 and admin ==0 %}-->
                                 <button class="delete">Supprimer</button>
-                            {% endif %}
+                            <!--{% endif %}-->
                         </article>
-                    {% endfor %}
-                    {% if modo == 1 and admin ==0 %}
+                        <article class="item ng-scope">
+                            <p>{{ Prod.img }}</p>
+                            <p>{{ Prod.nom }}</p>
+                            <p>{{ Prod.prix}}</p>
+                            <button>Ajouter au panier</button>
+                            <!--{% if modo == 1 and admin ==0 %}-->
+                            <button class="delete">Supprimer</button>
+                            <!--{% endif %}-->
+                        </article>
+                        <article class="item ng-scope">
+                            <p>{{ Prod.img }}</p>
+                            <p>{{ Prod.nom }}</p>
+                            <p>{{ Prod.prix}}</p>
+                            <button>Ajouter au panier</button>
+                            <!--{% if modo == 1 and admin ==0 %}-->
+                            <button class="delete">Supprimer</button>
+                            <!--{% endif %}-->
+                        </article>
+                        <article class="item ng-scope">
+                            <p>{{ Prod.img }}</p>
+                            <p>{{ Prod.nom }}</p>
+                            <p>{{ Prod.prix}}</p>
+                            <button>Ajouter au panier</button>
+                            <!--{% if modo == 1 and admin ==0 %}-->
+                            <button class="delete">Supprimer</button>
+                            <!--{% endif %}-->
+                        </article>
+                        <article class="item ng-scope" ng-repeat="i in items">
+                            <p>{{ Prod.img }}</p>
+                            <p>{{ Prod.nom }}</p>
+                            <p>{{ Prod.prix}}</p>
+                            <button>Ajouter au panier</button>
+                            <!--{% if modo == 1 and admin ==0 %}-->
+                            <button class="delete">Supprimer</button>
+                            <!--{% endif %}-->
+                        </article>
+                    <!--{% endfor %}-->
+                    <!--{% if modo == 1 and admin ==0 %}-->
                     <article id="ajoutProd">
                         <a href="pageNouveauProduit.html.twig"><button>Ajouter un produit</button></a>
                     </article>
-                    {% endif %}
+                    <!--{% endif %}-->
                 </section>
             </section>
 
