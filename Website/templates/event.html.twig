@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1><a href="/event/{{ event.getId }}">{{ event.getTitle }}</a></h1>
+
+<h3>Photos</h3>
+<p>Photos Here ...</p>
+
+<h3>Description</h3>
+<p>{{ event.getDescription }}</p>
+
+<h3>Dates</h3>
+<p>Begin : {{ event.getBeginDate.format('d/m/Y') }} End : {{ event.getEndDate.format('d/m/Y') }}</p>
+
+<a id="like" href="#">Like</a>
+<a href="/event/{{ event.getId }}/comment">Add Comment</a>
+
+<h3>Comments</h3>
+{% for comment in comments %}
+
+    <p><strong>{{ comment.getUserId.getUsername }}</strong> : {{ comment.getText }}</p>
+
+{% endfor %}
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+    <script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script language = "javascript">
+        $(document).ready(function(){
+            $("#like").on("click", function(event){
+                $.ajax({
+                    url:        '/event/{id}',
+                    type:       'POST',
+                    dataType:   'text',
+                    async:      true,
+
+                    success: function(data, status) {
+                        alert("Success.");
+                    },
+
+                    error : function(xhr, textStatus, errorThrown) {
+                        alert('Ajax request failed.');
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

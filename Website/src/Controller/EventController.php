@@ -13,6 +13,8 @@ use App\Entity\Comment;
 use App\Entity\Event;
 
 // Required Components
+use App\Entity\LikedEvent;
+use App\Repository\LikedEventRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,41 +52,22 @@ class EventController extends Controller {
     /** @Route("/event/{event_id}") */
     public function viewEvent($event_id, Request $request) {
 
-        /* THIS IS COMPLETELY USELESS NOW ...
-        $form = $this->createFormBuilder()
-        ->add('like', SubmitType::class, array('label' => 'Like'))
-        ->getForm();
-
-        $form->handleRequest($request);
         $event = $this->retrieveEventById($event_id);
-        */
+
+        //$request = (object) $request;
 
         if ($request->isXmlHttpRequest()) {
 
             $this->like($event_id);
-            return new Response("+1",200);
+            return new Response("1",200);
 
         }
 
-        /* THIS IS KINDA USELESS NOW ... Sooo Saad
-        if($form->get('like')->isClicked()) {
-
-            $this->like($event);
-
-        }
-        */
-
-        // return $this->render('form.html.twig', array('form' => $form->createView()));
-
-        return $this->render('testTemplates/like.html.twig');
-
-        /*  TO UNCOMMENT LATER
         return $this->render('event.html.twig', array(
             'event' => $event,
-            'comments' => $this->getAllComments($event->getId()),
-            'like_button' => $form->createView()
+            'comments' => $this->getAllComments($event)
         ));
-        */
+
     }
 
     /**
@@ -153,7 +136,17 @@ class EventController extends Controller {
         $session = new Session();
 
         if(NULL !== $session->get('user')) {
-            LikeEventController::like($session->get('user'), $event);
+            //$repo = $this->getDoctrine()->getRepository(LikedEventRepository::class);
+            //$repo->like($session->get('user'), $event);
+
+            $likedEvent = new LikedEvent();
+            $likedEvent->setUserId($session->get('user'));
+            $likedEvent->setEventId($event);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($likedEvent);
+            $em->flush();
+
         } else {
             // User is NOT connected
         }
@@ -178,7 +171,7 @@ class EventController extends Controller {
 
     public function getAllComments($id_event) {
         $qb = $this->getDoctrine()->getRepository(Comment::class);
-        return $qb->findBy(['id_event' => $id_event]);
+        return $qb->findBy(['event_id' => $id_event]);
     }
 
 }

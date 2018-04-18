@@ -6,37 +6,111 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class SignUpForm {
 
-    protected $username;
+    /**
+     * @Assert\NotNull()
+     */
+    private $username;
+
+    /**
+     * @Assert\NotNull()
+     */
+    private $name;
+
+    /**
+     * @Assert\NotNull()
+     */
+    private $surname;
 
     /** @Assert\Length(min=5, minMessage="Doit faire plus de 5 caractères")
     *   @Assert\Regex("/[A-Z]/", message="Doit contenir une majuscule")
     *   @Assert\Regex("/[0-9]/", message="Doit contenir un chiffre")
     */
-    protected $password;
+    private $password;
 
-    protected $email;
+    /**
+     * @Assert\NotNull()
+     */
+    private $email;
 
-    public function getUsername() {
+
+
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
         return $this->username;
     }
 
-    public function getPassword() {
-        return $this->password;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function setUsername($username) {
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
+    {
         $this->username = $username;
     }
 
-    public function setPassword($password) {
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @param mixed $surname
+     */
+    public function setSurname($surname): void
+    {
+        $this->surname = $surname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password): void
+    {
         $this->password = $password;
     }
 
-    public function setEmail($email) {
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
+    {
         $this->email = $email;
     }
 

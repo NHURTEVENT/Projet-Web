@@ -128,12 +128,12 @@ class User
         return $this;
     }
 
-    public function getAdmin(): ?string
+    public function getAdmin(): ?bool
     {
         return $this->admin;
     }
 
-    public function setAdmin(string $admin): self
+    public function setAdmin(bool $admin): self
     {
         $this->admin = $admin;
 
