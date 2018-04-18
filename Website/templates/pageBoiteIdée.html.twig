@@ -12,8 +12,8 @@
 
             <section id="navigation">
                 <p id="btn">
-                    <button id="inscriptionHead">Inscription</button>
-                    <button id="connexionHead">Connexion</button>
+                    <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
+                    <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
                 </p>
 
                 <p id="BVN">Bienvenue sur le site du BDE du Cesi Toulouse</p>
@@ -41,7 +41,7 @@
                         <section id="listeIdee">
                             <ul id="liste">
                                 {% for Idea in 0..{{ Idea.Nombre }} %}
-                                <li class="idée"><a href="#Idée">{{ Idea.Title }}</a></li>
+                                <li class="idée">{{ Idea.Title }}</li>
                                 {% enfor %}
                             </ul>
                         </section>
@@ -60,7 +60,7 @@
                         {% endif %}
                     </section>
 
-                    <section id="soumettre">
+                    <section id="choix">
                         Soumettre une idée:
                         <input id="soumettreIdée">
                         <button>Soumettre</button>
@@ -83,17 +83,13 @@
         <footer>
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
             <section class="container">
-                <hr />
                 <article class="text-center center-block">
                     Nous contacter :
                     <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs"><i class="fa fa-facebook-square fa-3x social"></i></a>
                     <a href="https://twitter.com/bdecesi_tls"><i class="fa fa-twitter-square fa-3x social"></i></a>
                     <a href="mailto:bde-toulouse@viacesi.fr"><i class="fa fa-envelope-square fa-3x social"></i></a>
                 </article>
-                <hr />
             </section>
         </footer>
-
     </body>
-
 </html>

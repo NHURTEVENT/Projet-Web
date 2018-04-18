@@ -12,8 +12,8 @@
 
             <section id="navigation">
                 <p id="btn">
-                    <button id="inscriptionHead">Inscription</button>
-                    <button id="connexionHead">Connexion</button>
+                    <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
+                    <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
                 </p>
 
                 <p id="BVN">Bienvenue sur le site du BDE du Cesi Toulouse</p>
@@ -33,11 +33,11 @@
             <section id="container">
                 {% if modo == 1 and admin == 0 %}
                 <section id="barreAddEvent">
-                    Ajouter un évènement:
-                    <button id="ajoutEvent">+</button>
+                    <h3>Ajouter un évènement:</h3>
+                    <a href="pageCréationEvent.html.twig"><button id="ajoutEvent">+</button></a>
                 </section>
                 {% endif %}
-                <a id="Titre1">Evènement passés</a>
+                <h2>Evènement passés</h2>
 
                 <section id="Passe">
                     {% for Event in 0..{{ Event.Passe }} %}
@@ -51,7 +51,7 @@
                 </section>
 
                 <section id="barre2">
-                    <a id="Titre2">A venir</a>
+                    <h2>A venir</h2>
                 </section>
 
                 <section id="Futur">
@@ -81,14 +81,12 @@
         <footer>
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
             <section class="container">
-                <hr />
                 <article class="text-center center-block">
                     Nous contacter :
                     <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs"><i class="fa fa-facebook-square fa-3x social"></i></a>
                     <a href="https://twitter.com/bdecesi_tls"><i class="fa fa-twitter-square fa-3x social"></i></a>
                     <a href="mailto:bde-toulouse@viacesi.fr"><i class="fa fa-envelope-square fa-3x social"></i></a>
                 </article>
-                <hr />
             </section>
         </footer>
 
