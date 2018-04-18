@@ -31,7 +31,7 @@ class Basket
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getuser_id()
     {
         return $this->user_id;
     }

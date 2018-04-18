@@ -1,30 +1,119 @@
 <?php
-/**
- * Created by PhpStorm.
- * User2: Nico
- * Date: 13/04/2018
- * Time: 11:29
- */
 
 namespace App\Controller;
 
-use App\Entity\Basket;
-use App\Entity\Category;
 use App\Entity\Product;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use App\Form\ProductType;
+use App\Repository\ProductRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/product")
+ */
 class ProductController extends Controller
 {
+    /**
+     * @Route("/", name="product_index", methods="GET")
+     */
+    public function index(ProductRepository $productRepository): Response
+    {
+        return $this->render('product/index.html.twig', ['products' => $productRepository->findAll()]);
+    }
 
     /**
-     * @Route("/product/create")
+     * @Route("/new", name="product_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $product = new Product();
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
+
+            return $this->redirectToRoute('product_index');
+        }
+
+        return $this->render('product/new.html.twig', [
+            'product' => $product,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="product_show", methods="GET")
+     */
+    public function show(Product $product): Response
+    {
+        return $this->render('product/show.html.twig', ['product' => $product]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="product_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Product $product): Response
+    {
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('product_edit', ['id' => $product->getId()]);
+        }
+
+        return $this->render('product/edit.html.twig', [
+            'product' => $product,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="product_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Product $product): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($product);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('product_index');
+    }
+
+
+
+
+
+
+
+    /**
+     * @Route("/shop/", methods="GET")
+     */
+    public function showShop(): Response
+    {
+        //return $this->render('product/show.html.twig', ['product' => $product]);
+
+
+        $bestSellers = $this->getBestSeller();
+        $products = $this->getAll();
+        $modo = 0;
+        $admin =1;
+
+        return $this->render('pageBoutique.html.twig',array("bestSellers"=>$bestSellers,"products"=>$products,"modo"=>$modo,"admin"=>$admin));
+
+    }
+
+
+    /**
+     * @Route("/create")
      */
     public function addAction(Request $request) {
 
@@ -32,13 +121,21 @@ class ProductController extends Controller
         $product->setPopularity(0);
 
         $repo = $this->getDoctrine()->getRepository(Product::class);
-        $products = $repo->findAllCategories();
+        $categories = $repo->findAllCategories();
+
+
+        $cat2 = $this->forward('App\Controller\CategoryController::findAll');
+
+
+
+        //$cat = array('choices'=> array('conso'=>'false', 'text'=>'false', 'autre'=>'true'));
+        $cat = array('choices'=>$categories);
 
         $form = $this->createFormBuilder($product)
             ->add('title', TextType::class)
             ->add('description', TextType::class)
             ->add('price', NumberType::class)
-            //->add('category', ChoiceType::class, $products) //doesn't work
+            ->add('category', ChoiceType::class, $cat)
             ->add('save', SubmitType::class, array('label' => 'Create product'))
             //TODO combobox catégorie
             ->getForm();
@@ -61,18 +158,7 @@ class ProductController extends Controller
         return $this->render('form.html.twig', $build);
     }
 
-    /**
-     * @Route("/shop")
-     */
-    public function showShop()
-    {
-        $bestSellers = $this->getBestSeller();
-        $products = $this->getAll();
-        $modo = 0;
-        $admin =1;
 
-        return $this->render('pageBoutique.html.twig',array("bestSellers"=>$bestSellers,"products"=>$products,"modo"=>$modo,"admin"=>$admin));
-    }
 
     /**
      * @Route("/bestseller")

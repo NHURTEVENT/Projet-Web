@@ -41,6 +41,12 @@ class Product
      */
     private $category;
 
+
+    public function __construct()
+    {
+        $this->setPopularity(0);
+    }
+
     public function getId()
     {
         return $this->id;

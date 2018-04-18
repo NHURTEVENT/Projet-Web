@@ -1,68 +1,90 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nico
- * Date: 15/04/2018
- * Time: 20:44
- */
 
 namespace App\Controller;
 
-
 use App\Entity\Category;
-use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/category")
+ */
 class CategoryController extends Controller
 {
+    /**
+     * @Route("/", name="category_index", methods="GET")
+     */
+    public function index(CategoryRepository $categoryRepository): Response
+    {
+        return $this->render('category/index.html.twig', ['categories' => $categoryRepository->findAll()]);
+    }
 
     /**
-     * @Route("/category/create/{category}")
+     * @Route("/new", name="category_new", methods="GET|POST")
      */
-    public function createCategory($category)
+    public function new(Request $request): Response
     {
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
 
-        //search if the category doesn't exist yet
-        $repo = $this->getDoctrine()->getRepository(Category::class);
-        $cat = $repo->findOneBy(['category'=>$category]);
-
-        //if if does notifies the admin
-        if($cat){
-            return new Response($category.' already exists');
-        }
-        //else creates it
-        else{
-            $cat = new Category();
-            $cat->setCategory($category);
-
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($cat);
+            $em->persist($category);
             $em->flush();
 
-            return new Response('category ' . $category . 'created');
-         }
+            return $this->redirectToRoute('category_index');
+        }
+
+        return $this->render('category/new.html.twig', [
+            'category' => $category,
+            'form' => $form->createView(),
+        ]);
     }
 
-    public function findAll(){
-        $repo = $this->getDoctrine()->getRepository(Category::class);
-        $categories = $repo->findAll();
-
-        return $categories;
+    /**
+     * @Route("/{id}", name="category_show", methods="GET")
+     */
+    public function show(Category $category): Response
+    {
+        return $this->render('category/show.html.twig', ['category' => $category]);
     }
 
-    public function findByName($name){
-        $repo = $this->getDoctrine()->getRepository(Category::class);
-        $category = $repo->findByName($name);
+    /**
+     * @Route("/{id}/edit", name="category_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Category $category): Response
+    {
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
 
-        return $category;
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('category_edit', ['id' => $category->getId()]);
+        }
+
+        return $this->render('category/edit.html.twig', [
+            'category' => $category,
+            'form' => $form->createView(),
+        ]);
     }
 
-    public function findByID($id){
-        $repo = $this->getDoctrine()->getRepository(Category::class);
-        $category = $repo->find($id);
+    /**
+     * @Route("/{id}", name="category_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Category $category): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($category);
+            $em->flush();
+        }
 
-        return $category;
+        return $this->redirectToRoute('category_index');
     }
-
 }
