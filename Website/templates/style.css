@@ -107,6 +107,7 @@ footer{
     footer{
         margin-left:1px;
     }
+
 }
 
 /* css pageAccueil && pageEventUnique*/
@@ -285,7 +286,6 @@ footer{
 }
 
 .prodCom{
-    border: solid;
     display: block;
     width: 200px;
     height: 250px;
@@ -315,7 +315,8 @@ footer{
     flex-direction: row;
 }
 
-#ajoutProd{
+.ajoutPanier{
+    display: block;
 
 }
 
@@ -482,27 +483,6 @@ footer{
 
 #oui{
     margin-left: 10px;
-}
-
-/*css ajouterImage*/
-
-#milieu{
-    display: flex;
-    flex-direction: column;
-    margin-left:35%;
-}
-
-#titreAjoutImage{
-    display: flex;
-    justify-content: center;
-}
-
-#addCommentaireimage{
-    margin-bottom: 10px;
-}
-
-#addImg{
-    margin-bottom: 10px;
 }
 
 /*css nouveau produit*/

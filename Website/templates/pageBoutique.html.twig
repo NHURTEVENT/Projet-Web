@@ -72,6 +72,7 @@
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
+                            <button>Ajouter au panier</button>
                             {% if modo == 1 and admin ==0 %}
                                 <button class="delete">Supprimer</button>
                             {% endif %}
@@ -82,18 +83,20 @@
                         <a href="pageNouveauProduit.html.twig"><button>Ajouter un produit</button></a>
                     </section>
                     {% endif %}
+
                 </section>
 
             </section>
 
             <section id="aside">
-
                 <section id="boiteIdée">
                     <a>Boite à Idées</a>
+                    {{ Idee.PlusVoter }}
                 </section>
 
                 <section id="EventMois">
                     <a>Evènement du mois</a>
+                    {{ Event.Mois }}
                 </section>
             </section>
 
