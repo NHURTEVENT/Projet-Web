@@ -32,52 +32,50 @@
         </header>
         <section class="container">
             <section id="evenement">
-                <section id="imgEvent">
+                <article id="imgEvent">
                     <a id="nomEvent">{{ Event.Nom }}</a>
                     <img src="{{ Event.img }}" id="imageEvent"/>
-                </section>
+                </article>
 
-                <section id="bouton">
+                <article id="bouton">
                     <button id="ajouterImage">Ajouter image à l'album</button>
                     {% if modo == 1 and admin == 0 %}
                     <button id="Signal">Signaler</button>
                     {% endif %}
-                </section>
+                </article>
 
-                <section id="description">
+                <article id="description">
                     <a>{{ Event.Description }}</a>
-                </section>
+                </article>
 
-                <section id="commentaire">
+                <article id="commentaire">
                     <button class="like">Like</button>
                     <a>{{ Event.Commentaire }}</a>
-                </section>
+                </article>
 
             </section>
 
             <section id="aside">
-                <section id="boiteIdée">
+                <article id="boiteIdée">
                     <a>Boite à Idées</a>
                     {{ Idee.PlusVoter }}
-                </section>
+                </article>
 
-                <section id="EventMois">
+                <article id="EventMois">
                     <a>Evènement du mois</a>
                     {{ Event.Mois }}
-                </section>
+                </article>
             </section>
         </section>
         <footer>
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
             <section class="container">
-                <hr />
                 <article class="text-center center-block">
                     Nous contacter :
                     <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs"><i class="fa fa-facebook-square fa-3x social"></i></a>
                     <a href="https://twitter.com/bdecesi_tls"><i class="fa fa-twitter-square fa-3x social"></i></a>
                     <a href="mailto:bde-toulouse@viacesi.fr"><i class="fa fa-envelope-square fa-3x social"></i></a>
                 </article>
-                <hr />
             </section>
         </footer>
     </body>

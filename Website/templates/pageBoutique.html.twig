@@ -49,26 +49,26 @@
 
                 <section id="barre2">
                     <p id="Titre2">Autres articles:</p>
-                    <section id="recherche">
+                    <article id="recherche">
                         <form action="/search" id="searchthis" method="get">
                             <input id="search" name="q" type="text" placeholder="Rechercher"/>
                             <input id="search-btn" type="submit" value="Rechercher"/>
                         </form>
-                    </section>
+                    </article>
                     <section id="Filtre">
                         <button id="dropbtn">Filtre</button>
-                        <section id="dropdown">
+                        <article id="dropdown">
                             <a href="#prixCroissant">prix croissant</a>
                             <a href="#prixDécroissant">prix décroissant</a>
                             <a href="#OrdreAlpha">Ordre alphabétique</a>
                             <a href="#Catégorie">Catégorie</a>
-                        </section>
+                        </article>
                     </section>
                 </section>
 
                 <section id="Prod">
                     {% for prod in 0..{{ products }} %}
-                        <section class="Prod">
+                        <article class="Prod">
                             <p>{{ Prod.img }}</p>
                             <p>{{ Prod.nom }}</p>
                             <p>{{ Prod.prix}}</p>
@@ -76,26 +76,26 @@
                             {% if modo == 1 and admin ==0 %}
                                 <button class="delete">Supprimer</button>
                             {% endif %}
-                        </section>
-                    {% enfor %}
+                        </article>
+                    {% endfor %}
                     {% if modo == 1 and admin ==0 %}
-                    <section id="ajoutProd">
+                    <article id="ajoutProd">
                         <a href="pageNouveauProduit.html.twig"><button>Ajouter un produit</button></a>
-                    </section>
+                    </article>
                     {% endif %}
                 </section>
             </section>
 
             <section id="aside">
-                <section id="boiteIdée">
+                <article id="boiteIdée">
                     <a>Boite à Idées</a>
                     {{ Idee.PlusVoter }}
-                </section>
+                </article>
 
-                <section id="EventMois">
+                <article id="EventMois">
                     <a>Evènement du mois</a>
                     {{ Event.Mois }}
-                </section>
+                </article>
             </section>
 
         </section>

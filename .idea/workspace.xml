@@ -13,15 +13,15 @@
     <pharConfigPath>$PROJECT_DIR$/Website/composer.json</pharConfigPath>
   </component>
   <component name="DockManager">
-    <window id="1">
+    <window id="2">
       <content type="file-editors">
         <state>
           <leaf>
             <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Website/templates/style.css">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="243">
-                    <caret line="316" column="0" lean-forward="true" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+                  <state relative-caret-position="17">
+                    <caret line="289" column="13" lean-forward="false" selection-start-line="289" selection-start-column="13" selection-end-line="289" selection-end-column="13" />
                     <folding />
                   </state>
                 </provider>
@@ -34,51 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pagePanier.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/pagePanier.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="105" column="0" lean-forward="true" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pageInscription.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/pageInscription.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-332">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pageEventUnique.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/pageEventUnique.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pageEvent.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/templates/pageEvent.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pageCréationEvent.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/pageCréationEvent.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
+            <state relative-caret-position="-901">
+              <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -87,8 +47,8 @@
       <file leaf-file-name="pageConnexion.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/templates/pageConnexion.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-247">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="226">
+              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -97,8 +57,8 @@
       <file leaf-file-name="pageBoutique.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/templates/pageBoutique.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+            <state relative-caret-position="56">
+              <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -107,8 +67,8 @@
       <file leaf-file-name="pageBoiteIdée.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/templates/pageBoiteIdée.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+            <state relative-caret-position="-510">
+              <caret line="36" column="29" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -117,8 +77,58 @@
       <file leaf-file-name="pageAccueil.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Website/templates/pageAccueil.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+            <state relative-caret-position="476">
+              <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pageInscription.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/templates/pageInscription.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pageNouveauProduit.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/templates/pageNouveauProduit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagePanier.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/templates/pagePanier.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="125" column="11" lean-forward="true" selection-start-line="125" selection-start-column="11" selection-end-line="125" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pageEventUnique.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/templates/pageEventUnique.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pageCréationEvent.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/templates/pageCréationEvent.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="617">
+              <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -171,16 +181,16 @@
         <option value="$PROJECT_DIR$/Website/templates/pageNouveauProduit.html" />
         <option value="$PROJECT_DIR$/Website/templates/pagePanier.html" />
         <option value="$PROJECT_DIR$/Website/templates/pageAccueil.html" />
-        <option value="$PROJECT_DIR$/Website/templates/pageInscription.html.twig" />
-        <option value="$PROJECT_DIR$/Website/templates/pageConnexion.html.twig" />
-        <option value="$PROJECT_DIR$/Website/templates/pageNouveauProduit.html.twig" />
-        <option value="$PROJECT_DIR$/Website/templates/pageEventUnique.html.twig" />
-        <option value="$PROJECT_DIR$/Website/templates/pageCréationEvent.html.twig" />
-        <option value="$PROJECT_DIR$/Website/templates/pageBoiteIdée.html.twig" />
-        <option value="$PROJECT_DIR$/Website/templates/pagePanier.html.twig" />
         <option value="$PROJECT_DIR$/Website/templates/style.css" />
-        <option value="$PROJECT_DIR$/Website/templates/pageBoutique.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pagePanier.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pageNouveauProduit.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pageInscription.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pageEventUnique.html.twig" />
         <option value="$PROJECT_DIR$/Website/templates/pageEvent.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pageCréationEvent.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pageConnexion.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pageBoutique.html.twig" />
+        <option value="$PROJECT_DIR$/Website/templates/pageBoiteIdée.html.twig" />
         <option value="$PROJECT_DIR$/Website/templates/pageAccueil.html.twig" />
       </list>
     </option>
@@ -285,7 +295,7 @@
       <path value="$PROJECT_DIR$/Website/vendor/doctrine/doctrine-cache-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="683" />
     <option name="height" value="728" />
   </component>
@@ -366,15 +376,15 @@
       <workItem from="1523890251880" duration="856000" />
       <workItem from="1523987811133" duration="2653000" />
       <workItem from="1523998557924" duration="2309000" />
-      <workItem from="1524033632257" duration="10888000" />
+      <workItem from="1524033632257" duration="15547000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47461000" />
+    <option name="totallyTimeSpent" value="52120000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13762811" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -649,90 +659,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/pageNouveauProduit.html.twig">
+    <entry file="file://$PROJECT_DIR$/Website/templates/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="81" column="12" lean-forward="true" selection-start-line="81" selection-start-column="12" selection-end-line="91" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/pageInscription.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-332">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/pageEventUnique.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/pageCréationEvent.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/pageConnexion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/pageBoiteIdée.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+        <state relative-caret-position="17">
+          <caret line="289" column="13" lean-forward="false" selection-start-line="289" selection-start-column="13" selection-end-line="289" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/pagePanier.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="105" column="0" lean-forward="true" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state relative-caret-position="464">
+          <caret line="125" column="11" lean-forward="true" selection-start-line="125" selection-start-column="11" selection-end-line="125" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/style.css">
+    <entry file="file://$PROJECT_DIR$/Website/templates/pageNouveauProduit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="316" column="0" lean-forward="true" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+        <state relative-caret-position="158">
+          <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/pageBoutique.html.twig">
+    <entry file="file://$PROJECT_DIR$/Website/templates/pageInscription.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+        <state relative-caret-position="510">
+          <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/pageEventUnique.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/pageEvent.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        <state relative-caret-position="-901">
+          <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/pageCréationEvent.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/pageConnexion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/pageBoutique.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/pageBoiteIdée.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="36" column="29" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/pageAccueil.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+        <state relative-caret-position="476">
+          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding />
         </state>
       </provider>

@@ -32,37 +32,61 @@
         <section id="center">
             <section id="container">
                 {% if modo == 1 and admin == 0 %}
-                <section id="barreAddEvent">
+                <article id="barreAddEvent">
                     <h3>Ajouter un évènement:</h3>
                     <a href="pageCréationEvent.html.twig"><button id="ajoutEvent">+</button></a>
-                </section>
+                </article>
                 {% endif %}
                 <h2>Evènement passés</h2>
 
                 <section id="Passe">
-                    {% for Event in 0..{{ Event.Passe }} %}
+                    <!--{% for Event in 0..{{ Event.Passe }} %}-->
                     <a href="pageEventUnique.html.twig">
-                    <section class="eventPasse">
-                        <img src="{{ Event.img }}" class="imageEvent">
-                        <a class="Nom">{{ Event.Nom }}</a>
-                    </section>
+                        <article class="eventPasse">
+                            <img src="{{ Event.img }}" class="imageEvent">
+                            <a class="Nom">{{ Event.Nom }}</a>
+                        </article>
                     </a>
-                    {% enfor %}
+                    <a href="pageEventUnique.html.twig">
+                        <article class="eventPasse">
+                            <img src="{{ Event.img }}" class="imageEvent">
+                            <a class="Nom">{{ Event.Nom }}</a>
+                        </article>
+                    </a>
+                    <a href="pageEventUnique.html.twig">
+                        <article class="eventPasse">
+                            <img src="{{ Event.img }}" class="imageEvent">
+                            <a class="Nom">{{ Event.Nom }}</a>
+                        </article>
+                    </a>
+                    <!--{% endfor %}-->
                 </section>
 
-                <section id="barre2">
+                <article id="barre2">
                     <h2>A venir</h2>
-                </section>
+                </article>
 
                 <section id="Futur">
-                    {% for Event in 0..{{ Event.Futur }}%}
+                    <!--{% for Event in 0..{{ Event.Futur }}%}-->
                     <a href="pageEventUnique.html.twig">
-                    <section class="event">
+                    <article class="event">
                         <img src="{{ Event.img }}" class="imageEvent">
                         <a class="Nom">{{ Event.Nom }}</a>
-                    </section>
+                    </article>
                     </a>
-                    {% enfor %}
+                    <a href="pageEventUnique.html.twig">
+                        <article class="event">
+                            <img src="{{ Event.img }}" class="imageEvent">
+                            <a class="Nom">{{ Event.Nom }}</a>
+                        </article>
+                    </a>
+                    <a href="pageEventUnique.html.twig">
+                        <article class="event">
+                            <img src="{{ Event.img }}" class="imageEvent">
+                            <a class="Nom">{{ Event.Nom }}</a>
+                        </article>
+                    </a>
+                    <!--{% endfor %}-->
                 </section>
             </section>
 

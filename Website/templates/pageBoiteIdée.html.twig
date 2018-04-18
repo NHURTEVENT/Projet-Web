@@ -32,31 +32,31 @@
             <section id="central">
                 <section id="centre">
 
-                    <section id="Titre">
+                    <article id="Titre">
                         Liste d'idées d'évènements :
-                    </section>
+                    </article>
 
                     <section id="choix">
 
-                        <section id="listeIdee">
+                        <article id="listeIdee">
                             <ul id="liste">
                                 {% for Idea in 0..{{ Idea.Nombre }} %}
                                 <li class="idée">{{ Idea.Title }}</li>
                                 {% enfor %}
                             </ul>
-                        </section>
+                        </article>
 
-                        <section id="upvote">
+                        <article id="upvote">
                             {% for Idea in 0..{{ Idea.Nombre }} %}
                             <button>Upvote</button>
                             {% enfor %}
-                        </section>
+                        </article>
                         {% if modo == 1 %}
-                            <section id="creeEvent">
+                            <article id="creeEvent">
                                 {% for Idea in 0..{{ Idea.Nombre }} %}
-                                <button>Créer évènement</button>
+                                <a href="pageCréationEvent.html.twig"><button>Créer évènement</button></a>
                                 {% enfor %}
-                            </section>
+                            </article>
                         {% endif %}
                     </section>
 
@@ -69,15 +69,15 @@
                 </section>
 
                 <section id="aside">
-                    <section id="boiteIdée">
+                    <article id="boiteIdée">
                         <a>Boite à Idées</a>
                         {{ Idee.PlusVoter }}
-                    </section>
+                    </article>
 
-                    <section id="EventMois">
+                    <article id="EventMois">
                         <a>Evènement du mois</a>
                         {{ Event.Mois }}
-                    </section>
+                    </article>
                 </section>
             </section>
 

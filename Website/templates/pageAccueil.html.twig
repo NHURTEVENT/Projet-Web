@@ -35,38 +35,38 @@
                 {% for event in 0..{{ Event.Nombre }} %}
                 <section class="evenement">
 
-                    <section class="imgEvent">
+                    <article class="imgEvent">
                         <a href="pageEventUnique.html.twig"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent"/>
                         </a>
-                    </section>
+                    </article>
 
-                    <section class="bouton">
+                    <article class="bouton">
                         <a href="pageEventUnique.html.twig" class="nomEvent">{{ Event.Nom }}</a>
                         <button class="Signal">Signaler</button>
-                    </section>
+                    </article>
 
-                    <section class="description">
+                    <article class="description">
                         <a>{{ Event.Description }}</a>
-                    </section>
+                    </article>
 
-                    <section class="commentaire">
+                    <article class="commentaire">
                         <button class="like">Like</button>
                         <a>{{ Event.Commentaire }}</a>
-                    </section>
+                    </article>
 
                 </section>
-                {% enfor %}
+                {% endfor %}
 
                 <section id="aside">
-                    <section id="boiteIdée">
+                    <article id="boiteIdée">
                         <a>Boite à Idées</a>
                         {{ Idee.PlusVoter }}
-                    </section>
+                    </article>
 
-                    <section id="EventMois">
+                    <article id="EventMois">
                         <a>Evènement du mois</a>
                         {{ Event.Mois }}
-                    </section>
+                    </article>
                 </section>
             </section>
 

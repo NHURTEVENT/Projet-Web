@@ -68,48 +68,6 @@ footer{
     font-size: 20px
 }
 
-@media screen and (max-width: 700px){
-    #aside{
-        position:absolute;
-        left: -999em;
-    }
-
-    .evenement{
-        margin-left:0px;
-    }
-
-    #navBar{
-        width: 100%;
-        padding: 8px 0;
-        border-right: 1px solid #ddd;
-    }
-
-    #navBar a{
-        color: white;
-        -webkit-transition: all 0.08s linear;
-        -moz-transition: all 0.08s linear;
-        -o-transition: all 0.08s linear;
-        transition: all 0.08s linear;
-        -webkit-border-radius: 4px 0 0 4px;
-        -moz-border-radius: 4px 0 0 4px;
-        border-radius: 4px 0 0 4px;
-    }
-
-    #navBar a:hover{
-        background-color: darkorange;
-    }
-
-    #img{
-        width:0px;
-        height:0px;
-    }
-
-    footer{
-        margin-left:1px;
-    }
-
-}
-
 /* css pageAccueil && pageEventUnique*/
 
 .evenement{
@@ -329,12 +287,13 @@ footer{
     flex-direction: row;
 }
 
-.eventPasse{
+.eventPasse, .event{
     display: flex;
     flex-direction: column;
     border: solid;
     width: 200px;
     height: 250px;
+    margin-right: 3px;
 }
 
 .Nom{
@@ -346,15 +305,6 @@ footer{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-}
-
-.event{
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    height: 250px;
-    border: solid;
-    margin-right: 10px;
 }
 
 #ajoutEvent{
@@ -506,4 +456,55 @@ footer{
 
 #selectCatégorie{
     margin-bottom: 10px;
+}
+
+@media screen and (max-width: 700px){
+    #aside{
+        position:absolute;
+        left: -999em;
+    }
+
+    .evenement{
+        margin-left:0px;
+    }
+
+    #navBar{
+        width: 100%;
+        padding: 8px 0;
+        border-right: 1px solid #ddd;
+    }
+
+    #navBar a{
+        color: white;
+        -webkit-transition: all 0.08s linear;
+        -moz-transition: all 0.08s linear;
+        -o-transition: all 0.08s linear;
+        transition: all 0.08s linear;
+        -webkit-border-radius: 4px 0 0 4px;
+        -moz-border-radius: 4px 0 0 4px;
+        border-radius: 4px 0 0 4px;
+    }
+
+    #navBar a:hover{
+        background-color: darkorange;
+    }
+
+    #img{
+        width:0px;
+        height:0px;
+    }
+
+    footer{
+        margin-left:1px;
+    }
+
+    #Passe, #Futur{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eventPasse, .event{
+        margin-bottom: 3px;
+    }
+
 }
