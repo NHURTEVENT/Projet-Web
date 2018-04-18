@@ -1,138 +1,6 @@
-
-/* font Awesome http://fontawesome.io*/
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
-/* Animation.css*/
-@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
-
-.col-item {
-    border: 1px solid #E1E1E1;
-    background: #FFF;
-    margin-bottom:12px;
-}
-.col-item .options {
-    position:absolute;
-    top:6px;
-    right:22px;
-}
-.col-item .photo {
-    overflow: hidden;
-}
-.col-item .photo .options {
-    display:none;
-}
-.col-item .photo img {
-    margin: 0 auto;
-    width: 100%;
-}
-
-.col-item .options-cart {
-    position:absolute;
-    left:22px;
-    top:6px;
-    display:none;
-}
-.col-item .photo:hover .options,
-.col-item .photo:hover .options-cart {
-    display:block;
-    -webkit-animation: fadeIn .5s ease;
-    -moz-animation: fadeIn .5s ease;
-    -ms-animation: fadeIn .5s ease;
-    -o-animation: fadeIn .5s ease;
-    animation: fadeIn .5s ease;
-}
-.col-item .options-cart-round {
-    position:absolute;
-    left:42%;
-    top:22%;
-    display:none;
-}
-.col-item .options-cart-round button {
-    border-radius: 50%;
-    padding:14px 16px;
-
-}
-.col-item .options-cart-round button .fa {
-    font-size:22px;
-}
-.col-item .photo:hover .options-cart-round {
-    display:block;
-    -webkit-animation: fadeInDown .5s ease;
-    -moz-animation: fadeInDown .5s ease;
-    -ms-animation: fadeInDown .5s ease;
-    -o-animation: fadeInDown .5s ease;
-    animation: fadeInDown .5s ease;
-}
-.col-item .info {
-    padding: 10px;
-    margin-top: 1px;
-}
-.col-item .price-details {
-    width: 100%;
-    margin-top: 5px;
-}
-.col-item .price-details h1 {
-    font-size: 14px;
-    line-height: 20px;
-    margin: 0;
-    float:left;
-}
-.col-item .price-details .details {
-    margin-bottom: 0px;
-    font-size:12px;
-}
-.col-item .price-details span {
-    float:right;
-}
-.col-item .price-details .price-new {
-    font-size:16px;
-}
-.col-item .price-details .price-old {
-    font-size:18px;
-    text-decoration:line-through;
-}
-.col-item .separator {
-    border-top: 1px solid #E1E1E1;
-}
-
-.col-item .clear-left {
-    clear: left;
-}
-.col-item .separator a {
-    text-decoration:none;
-}
-.col-item .separator p {
-    margin-bottom: 0;
-    margin-top: 6px;
-    text-align: center;
-}
-
-.col-item .separator p i {
-    margin-right: 5px;
-}
-.col-item .btn-add {
-    width: 60%;
-    float: left;
-}
-.col-item .btn-add a {
-    display:inline-block !important;
-}
-.col-item .btn-add {
-    border-right: 1px solid #E1E1E1;
-}
-.col-item .btn-details {
-    width: 40%;
-    float: left;
-    padding-left: 10px;
-}
-.col-item .btn-details a {
-    display:inline-block !important;
-}
-.col-item .btn-details a:first-child {
-    margin-right:12px;
-}
-/*
 body{
     margin:0px;
+    font-family: DIN,"PT Sans",sans-serif;
 }
 
 #ul {
@@ -162,10 +30,15 @@ body{
 }
 
 header{
-    background-color: red;
+    background-color: white;
 }
 
-//css acceuil
+footer{
+    margin-left:5%;
+    margin-bottom: 3%;
+}
+
+/*css accueil*/
 
 #enTete{
     display: flex;
@@ -194,53 +67,22 @@ header{
     justify-content: center;
     font-size: 20px
 }
-#footer{
-    background-color: red;
-}
 
-#mail{
-    color: white;
-}
+/* css pageAccueil && pageEventUnique*/
 
-@media screen and (max-width: 700px){
-    #main{
-        display: block;
-    }
-
-    #aside{
-        position:absolute;
-        left: -999em;
-    }
-
-    #evenement{
-        margin-left:0px;
-    }
-
-    #navBar{
-        font-size: 11px;
-    }
-}
-
-// css pageAcceuil && pageEventUnique
-#main{
-    display: flex;
-    justify-content: space-between;
-}
-
-#evenement{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 40%;
-}
-
-#imgEvent{
+.evenement{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-#bouton{
+.imgEvent{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bouton{
     display: block;
     flex-direction: row;
 }
@@ -251,12 +93,12 @@ header{
     margin-right: 1%
 }
 
-#nomEvent{
+.nomEvent{
     display: flex;
     justify-content: center;
 }
 
-//css pageBoiteIdée
+/* css pageBoiteIdée*/
 
 #central{
     display: flex;
@@ -277,6 +119,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #liste{
@@ -292,22 +136,16 @@ header{
     margin-left: 10%;
 }
 
-#créeEvent{
+#creeEvent{
     display: flex;
     flex-direction: column;
 }
 
-#listeIdée{
+#listeIdee{
     text-decoration: none;
 }
 
 #Titre{
-    margin-left: 35%;
-}
-
-#soumettre{
-    display: flex;
-    justify-content: space-between;
     margin-left: 35%;
 }
 
@@ -321,37 +159,38 @@ header{
     width:50%;
 }
 
-#titreAjoutIdée{
+#titreAjoutIdee{
     display: flex;
     justify-content: center;
 }
 
-#idée{
+#idee{
     display: flex;
     justify-content: center;
 }
 
-#titreIdée{
+#titreIdee{
     margin-left:10px;
 }
 
-#ajoutIdée{
+#ajoutIdee{
     display: flex;
     margin-left: 45%;
     width:80px;
 }
 
-//css pageBoutique
+/*css pageBoutique */
 
 #baseBoutique{
     display: flex;
     flex-direction: row;
+    margin-left: 20%;
 }
 
-#container{
+.container{
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
     margin-left: 20%;
 }
 
@@ -404,16 +243,15 @@ header{
     height: fit-content;
 }
 
-#prodCom1{
-    border: solid;
+.prodCom{
     display: block;
     width: 200px;
     height: 250px;
 }
 
-#prod1{
+#prod{
     border: solid;
-    display: block;
+    display: inline-block;
     width: 200px;
     height: 250px;
 }
@@ -430,28 +268,35 @@ header{
     margin-top: 5%;
 }
 
-//css Event
+#Prod, #prodPlusCommandé{
+    display: flex;
+    flex-direction: row;
+}
+
+/*css Event*/
 
 #center{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    margin-left:20%
 }
 
-#Passé{
+#Passe{
     display: flex;
     flex-direction: row;
 }
 
-#eventPassé1{
+.eventPasse, .event{
     display: flex;
     flex-direction: column;
     border: solid;
     width: 200px;
     height: 250px;
+    margin-right: 3px;
 }
 
-#Nom{
+.Nom{
     display: flex;
     padding-top: 20px;
 }
@@ -462,37 +307,31 @@ header{
     flex-direction: row;
 }
 
-.event{
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    height: 250px;
-    border: solid;
-    margin-right: 10px;
-}
-
 #ajoutEvent{
     font-size: 20px;
     margin-left: 5px;
+    width:50px;
+    height: 50px;
 }
 
 #barreAddEvent{
     display:flex;
 }
 
-//css inscription
+/*css inscription et connexion*/
 
 #inscription-connexion{
     margin-top: 5%;
     margin-right: 35%;
     margin-left: 35%;
-    border:solid;
 }
 
 #Title{
     display: flex;
     justify-content: center;
     font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .required{
@@ -506,14 +345,20 @@ header{
     justify-content: space-between;
     margin: 2%
 }
-//css connexion
 
 #connexion{
     margin-top: 5%;
     margin-left: 15%;
 }
 
-//css panier
+.confirmation{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+/*css panier*/
 
 #Panier{
     border:solid;
@@ -538,7 +383,7 @@ header{
     margin-right: 5%;
 }
 
-#produit{
+.produit{
     display: flex;
     justify-content: space-between;
     margin-bottom: 2px;
@@ -548,24 +393,13 @@ header{
     margin-bottom: 5px;
 }
 
-#choix{
-    display: flex;
-    justify-content: space-between;
-}
-
-//css création event
-#base{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 100%;
-}
+/*css création event*/
 
 #coeur{
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 #TitreCréationEvent{
@@ -596,28 +430,7 @@ header{
     margin-left: 10px;
 }
 
-//css ajouterImage
-
-#milieu{
-    display: flex;
-    flex-direction: column;
-    margin-left:35%;
-}
-
-#titreAjoutImage{
-    display: flex;
-    justify-content: center;
-}
-
-#addCommentaireimage{
-    margin-bottom: 10px;
-}
-
-#addImg{
-    margin-bottom: 10px;
-}
-
-//css nouveau produit
+/*css nouveau produit*/
 
 #titreAjoutProd{
     display: flex;
@@ -644,4 +457,54 @@ header{
 #selectCatégorie{
     margin-bottom: 10px;
 }
-*/
+
+@media screen and (max-width: 700px){
+    #aside{
+        position:absolute;
+        left: -999em;
+    }
+
+    .evenement{
+        margin-left:0px;
+    }
+
+    #navBar{
+        width: 100%;
+        padding: 8px 0;
+        border-right: 1px solid #ddd;
+    }
+
+    #navBar a{
+        color: white;
+        -webkit-transition: all 0.08s linear;
+        -moz-transition: all 0.08s linear;
+        -o-transition: all 0.08s linear;
+        transition: all 0.08s linear;
+        -webkit-border-radius: 4px 0 0 4px;
+        -moz-border-radius: 4px 0 0 4px;
+        border-radius: 4px 0 0 4px;
+    }
+
+    #navBar a:hover{
+        background-color: darkorange;
+    }
+
+    #img{
+        width:0px;
+        height:0px;
+    }
+
+    footer{
+        margin-left:1px;
+    }
+
+    #Passe, #Futur{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eventPasse, .event{
+        margin-bottom: 3px;
+    }
+
+}

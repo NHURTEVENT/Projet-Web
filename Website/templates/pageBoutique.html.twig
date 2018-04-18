@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">>
+    <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+    <title>Boutique</title>
 </head>
 
 <body>
@@ -11,8 +12,8 @@
 
     <section id="navigation">
         <p id="btn">
-            <button id="inscriptionHead">Inscription</button>
-            <button id="connexionHead">Connexion</button>
+            <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
+            <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
         </p>
 
         <p id="BVN">Bienvenue sur le site du BDE du Cesi Toulouse</p>
@@ -28,198 +29,88 @@
     </section>
 </header>
 
-<div class="container">
-    <div class="row">
-        <h2>Ecommerce Products Display Layout</h2>
-        <p>
-            This snippent uses <a href="http://daneden.github.io/animate.css/" target="_blank">Animate.css</a> for the animation of the buttons.
-        </p>
-        <div class="col-sm-3">
-            <article class="col-item">
-                <div class="photo">
-                    <div class="options-cart-round">
-                        <button class="btn btn-default" title="Add to cart">
-                            <span class="fa fa-shopping-cart"></span>
-                        </button>
-                    </div>
-                    <a href="#"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
-                </div>
-                <div class="info">
-                    <div class="row">
-                        <div class="price-details col-md-6">
-                            <p class="details">
-                                Lorem ipsum dolor sit amet, consectetur..
-                            </p>
-                            <h1>Sample Product</h1>
-                            <span class="price-new">$110.00</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <p class="text-center">Hover over image</p>
-        </div>
-        <div class="col-sm-3">
-            <article class="col-item">
-                <div class="photo">
-                    <div class="options">
-                        <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Add to wish list">
-                            <i class="fa fa-heart"></i>
-                        </button>
-                        <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compare">
-                            <i class="fa fa-exchange"></i>
-                        </button>
-                    </div>
-                    <div class="options-cart">
-                        <button class="btn btn-default" title="Add to cart">
-                            <span class="fa fa-shopping-cart"></span>
-                        </button>
-                    </div>
-                    <a href="#"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
-                </div>
-                <div class="info">
-                    <div class="row">
-                        <div class="price-details col-md-6">
-                            <p class="details">
-                                Lorem ipsum dolor sit amet, consectetur..
-                            </p>
-                            <h1>Sample Product</h1>
-                            <span class="price-new">$110.00</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <p class="text-center">Hover over image</p>
-        </div>
-        <div class="col-sm-3">
-            <article class="col-item">
-                <div class="options">
-                    <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Add to wish list">
-                        <i class="fa fa-heart"></i>
-                    </button>
-                    <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compare">
-                        <i class="fa fa-exchange"></i>
-                    </button>
-                </div>
-                <div class="photo">
-                    <a href="#"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
-                </div>
-                <div class="info">
-                    <div class="row">
-                        <div class="price-details col-md-6">
-                            <p class="details">
-                                Lorem ipsum dolor sit amet, consectetur..
-                            </p>
-                            <h1>Sample Product</h1>
-                            <span class="price-new">$110.00</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-        <div class="col-sm-3">
-            <article class="col-item">
-                <div class="photo">
-                    <a href="#"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
-                </div>
-                <div class="info">
-                    <div class="row">
-                        <div class="price-details col-md-6">
-                            <p class="details">
-                                Lorem ipsum dolor sit amet, consectetur..
-                            </p>
-                            <h1>Sample Product</h1>
-                            <span class="price-new">$110.00</span>
-                        </div>
-                    </div>
-                    <div class="separator clear-left">
-                        <p class="btn-add">
-                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                        </p>
-                        <p class="btn-details">
-                            <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-exchange"></i></a>
-                        </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </article>
-        </div>
-    </div>
-</div>
-
 <section id="baseBoutique">
     <section id="container">
         <section id="barre1">
             <p id="Titre1">Article les plus commandés:</p>
-            <button id="btnPanier">Panier</button>
+            <a href="/basket"><button id="btnPanier">Panier</button></a>
         </section>
 
         <section id="prodPlusCommandé">
-            {% for product in bestSellers %}
-            <section class="prodCom1">
-                <p>{{ product.getTitle }}</p>
-                <p>{{ product.getDescription }}</p>
-                <p>{{ product.getPrice }}</p>
-            </section>
+            {% for best in bestSellers %}
+                <section class="prodCom">
+                    <p>{{ best.getTitle }}</p>
+                    <p>{{ best.getDescription }}</p>
+                    <p>{{ best.getPrice }}</p>
+                </section>
             {% endfor %}
         </section>
 
 
         <section id="barre2">
             <p id="Titre2">Autres articles:</p>
-            <section id="recherche">
+            <article id="recherche">
                 <form action="/search" id="searchthis" method="get">
                     <input id="search" name="q" type="text" placeholder="Rechercher"/>
                     <input id="search-btn" type="submit" value="Rechercher"/>
                 </form>
-            </section>
+            </article>
             <section id="Filtre">
                 <button id="dropbtn">Filtre</button>
-                <section id="dropdown">
+                <article id="dropdown">
                     <a href="#prixCroissant">prix croissant</a>
                     <a href="#prixDécroissant">prix décroissant</a>
                     <a href="#OrdreAlpha">Ordre alphabétique</a>
                     <a href="#Catégorie">Catégorie</a>
-                </section>
+                </article>
             </section>
         </section>
 
         <section id="Prod">
-            {% for prod in  products %}
-            <section class="Prod1">
-                <p>{{ prod.getTitle }}</p>
-                <p>{{ prod.getDescription }}</p>
-                <p>{{ prod.getPrice}}</p>
-                {% if modo == 1 and admin ==0 %}
-                    <button class="delete">Supprimer</button>
-                {% endif %}
-            </section>
+            {% for product in  products %}
+                <section class="Prod">
+                    <p>{{ product.getTitle }}</p>
+                    <p>{{ product.getDescription }}</p>
+                    <p>{{ product.getPrice }}</p>
+                    <button>Ajouter au panier</button>
+                    {% if modo == 1 and admin ==0 %}
+                        <button class="delete">Supprimer</button>
+                    {% endif %}
+                </section>
             {% endfor %}
-            <section id="ajoutProd">
-                <button>Ajouter un produit</button>
-            </section>
+            {% if modo == 1 and admin ==0 %}
+                <article id="ajoutProd">
+                    <a href="pageNouveauProduit.html.twig"><button>Ajouter un produit</button></a>
+                </article>
+            {% endif %}
         </section>
-
     </section>
 
     <section id="aside">
-
-        <section id="boiteIdée">
+        <article id="boiteIdée">
             <a>Boite à Idées</a>
-        </section>
 
-        <section id="EventMois">
+        </article>
+
+        <article id="EventMois">
             <a>Evènement du mois</a>
-        </section>
+
+        </article>
     </section>
 
 </section>
 
-<footer id="footer">
-    <p id="mail">Adresse mail: bde-toulouse@viacesi.fr</p>
-    <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs">Facebook BDE</a>
+<footer>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <section class="container">
+        <article class="text-center center-block">
+            Nous contacter :
+            <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs"><i class="fa fa-facebook-square fa-3x social"></i></a>
+            <a href="https://twitter.com/bdecesi_tls"><i class="fa fa-twitter-square fa-3x social"></i></a>
+            <a href="mailto:bde-toulouse@viacesi.fr"><i class="fa fa-envelope-square fa-3x social"></i></a>
+        </article>
+    </section>
 </footer>
-
 </body>
 
 </html>
