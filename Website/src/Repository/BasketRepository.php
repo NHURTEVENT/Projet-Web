@@ -48,12 +48,12 @@ class BasketRepository extends ServiceEntityRepository
     }
     */
 
-    public function findBasketEntry($user_id,$product_id){
+    public function findBasketEntry($user,$product){
         return $this->createQueryBuilder('b')
                ->where('b.product_id = :product_id')
                ->andWhere('b.user_id = :user_id')
-               ->setParameter('user_id', $user_id)
-               ->setParameter('product_id', $product_id)
+               ->setParameter('user_id', $user)
+               ->setParameter('product_id', $product)
                ->getQuery()
                ->getOneOrNullResult();
     }

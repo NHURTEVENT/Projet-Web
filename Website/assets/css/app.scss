@@ -1,7 +1,647 @@
-body {
-    background-color: black;
+
+/* font Awesome http://fontawesome.io*/
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+/* Animation.css*/
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
+
+.col-item {
+    border: 1px solid #E1E1E1;
+    background: #FFF;
+    margin-bottom:12px;
+}
+.col-item .options {
+    position:absolute;
+    top:6px;
+    right:22px;
+}
+.col-item .photo {
+    overflow: hidden;
+}
+.col-item .photo .options {
+    display:none;
+}
+.col-item .photo img {
+    margin: 0 auto;
+    width: 100%;
 }
 
-h1 {
+.col-item .options-cart {
+    position:absolute;
+    left:22px;
+    top:6px;
+    display:none;
+}
+.col-item .photo:hover .options,
+.col-item .photo:hover .options-cart {
+    display:block;
+    -webkit-animation: fadeIn .5s ease;
+    -moz-animation: fadeIn .5s ease;
+    -ms-animation: fadeIn .5s ease;
+    -o-animation: fadeIn .5s ease;
+    animation: fadeIn .5s ease;
+}
+.col-item .options-cart-round {
+    position:absolute;
+    left:42%;
+    top:22%;
+    display:none;
+}
+.col-item .options-cart-round button {
+    border-radius: 50%;
+    padding:14px 16px;
+
+}
+.col-item .options-cart-round button .fa {
+    font-size:22px;
+}
+.col-item .photo:hover .options-cart-round {
+    display:block;
+    -webkit-animation: fadeInDown .5s ease;
+    -moz-animation: fadeInDown .5s ease;
+    -ms-animation: fadeInDown .5s ease;
+    -o-animation: fadeInDown .5s ease;
+    animation: fadeInDown .5s ease;
+}
+.col-item .info {
+    padding: 10px;
+    margin-top: 1px;
+}
+.col-item .price-details {
+    width: 100%;
+    margin-top: 5px;
+}
+.col-item .price-details h1 {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    float:left;
+}
+.col-item .price-details .details {
+    margin-bottom: 0px;
+    font-size:12px;
+}
+.col-item .price-details span {
+    float:right;
+}
+.col-item .price-details .price-new {
+    font-size:16px;
+}
+.col-item .price-details .price-old {
+    font-size:18px;
+    text-decoration:line-through;
+}
+.col-item .separator {
+    border-top: 1px solid #E1E1E1;
+}
+
+.col-item .clear-left {
+    clear: left;
+}
+.col-item .separator a {
+    text-decoration:none;
+}
+.col-item .separator p {
+    margin-bottom: 0;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.col-item .separator p i {
+    margin-right: 5px;
+}
+.col-item .btn-add {
+    width: 60%;
+    float: left;
+}
+.col-item .btn-add a {
+    display:inline-block !important;
+}
+.col-item .btn-add {
+    border-right: 1px solid #E1E1E1;
+}
+.col-item .btn-details {
+    width: 40%;
+    float: left;
+    padding-left: 10px;
+}
+.col-item .btn-details a {
+    display:inline-block !important;
+}
+.col-item .btn-details a:first-child {
+    margin-right:12px;
+}
+/*
+body{
+    margin:0px;
+}
+
+#ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+}
+
+.listeNav {
+    float: left;
+}
+
+.listeNav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.listeNav a:hover {
+    background-color: darkorange;
+}
+
+header{
+    background-color: red;
+}
+
+//css acceuil
+
+#enTete{
+    display: flex;
+}
+
+#img:nth-child(1){
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#navigation:nth-child(2){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#BVN{
+    display: flex;
+    justify-content: center;
+    font-size: 20px
+}
+#footer{
+    background-color: red;
+}
+
+#mail{
     color: white;
 }
+
+@media screen and (max-width: 700px){
+    #main{
+        display: block;
+    }
+
+    #aside{
+        position:absolute;
+        left: -999em;
+    }
+
+    #evenement{
+        margin-left:0px;
+    }
+
+    #navBar{
+        font-size: 11px;
+    }
+}
+
+// css pageAcceuil && pageEventUnique
+#main{
+    display: flex;
+    justify-content: space-between;
+}
+
+#evenement{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 40%;
+}
+
+#imgEvent{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#bouton{
+    display: block;
+    flex-direction: row;
+}
+
+#aside{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1%
+}
+
+#nomEvent{
+    display: flex;
+    justify-content: center;
+}
+
+//css pageBoiteIdée
+
+#central{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#centre{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#choix{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#liste{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    list-style-type: none
+}
+
+#upvote{
+    display:flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+#créeEvent{
+    display: flex;
+    flex-direction: column;
+}
+
+#listeIdée{
+    text-decoration: none;
+}
+
+#Titre{
+    margin-left: 35%;
+}
+
+#soumettre{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 35%;
+}
+
+#addIdea{
+    border: solid;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20px;
+    width:50%;
+}
+
+#titreAjoutIdée{
+    display: flex;
+    justify-content: center;
+}
+
+#idée{
+    display: flex;
+    justify-content: center;
+}
+
+#titreIdée{
+    margin-left:10px;
+}
+
+#ajoutIdée{
+    display: flex;
+    margin-left: 45%;
+    width:80px;
+}
+
+//css pageBoutique
+
+#baseBoutique{
+    display: flex;
+    flex-direction: row;
+}
+
+#container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 20%;
+}
+
+#dropbtn{
+    width: fit-content;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 25%;
+}
+
+#Filtre{
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+}
+
+#dropdown a{
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+#dropdown a:hover{
+    background-color: darkorange;
+}
+
+#filtre:hover #dropdown{
+    display: block;
+}
+
+#filtre:hover #dropbtn{
+    background-color: darkorange;
+}
+
+#barre1{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#btnPanier{
+    width: fit-content;
+    height: fit-content;
+}
+
+#prodCom1{
+    border: solid;
+    display: block;
+    width: 200px;
+    height: 250px;
+}
+
+#prod1{
+    border: solid;
+    display: block;
+    width: 200px;
+    height: 250px;
+}
+
+#barre2{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#searchthis{
+    display:flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+//css Event
+
+#center{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#Passé{
+    display: flex;
+    flex-direction: row;
+}
+
+#eventPassé1{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    width: 200px;
+    height: 250px;
+}
+
+#Nom{
+    display: flex;
+    padding-top: 20px;
+}
+
+#Futur{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.event{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 250px;
+    border: solid;
+    margin-right: 10px;
+}
+
+#ajoutEvent{
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+#barreAddEvent{
+    display:flex;
+}
+
+//css inscription
+
+#inscription-connexion{
+    margin-top: 5%;
+    margin-right: 35%;
+    margin-left: 35%;
+    border:solid;
+}
+
+#Title{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.required{
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+#link{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%
+}
+//css connexion
+
+#connexion{
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+//css panier
+
+#Panier{
+    border:solid;
+    margin-top:5%;
+    margin-left: 17%;
+    margin-right: 17%;
+    margin-bottom: 7%;
+}
+
+#titrePanier{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+#produitAcheté{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#produit{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+#prixTotal{
+    margin-bottom: 5px;
+}
+
+#choix{
+    display: flex;
+    justify-content: space-between;
+}
+
+//css création event
+#base{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+#coeur{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 20%;
+}
+
+#TitreCréationEvent{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#paramEvent{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10px;
+}
+
+#imageEvent{
+    display: flex;
+
+}
+
+#fichier{
+    display: flex;
+    margin-left: 10px;
+}
+
+#oui{
+    margin-left: 10px;
+}
+
+//css ajouterImage
+
+#milieu{
+    display: flex;
+    flex-direction: column;
+    margin-left:35%;
+}
+
+#titreAjoutImage{
+    display: flex;
+    justify-content: center;
+}
+
+#addCommentaireimage{
+    margin-bottom: 10px;
+}
+
+#addImg{
+    margin-bottom: 10px;
+}
+
+//css nouveau produit
+
+#titreAjoutProd{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#selectNomProd{
+    margin-bottom: 10px;
+}
+
+#selectPrixProd{
+    margin-bottom: 10px;
+}
+
+#selectDescription{
+    margin-bottom: 10px;
+}
+
+#selectImg{
+    margin-bottom: 10px;
+}
+
+#selectCatégorie{
+    margin-bottom: 10px;
+}
+*/

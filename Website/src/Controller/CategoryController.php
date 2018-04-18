@@ -44,4 +44,25 @@ class CategoryController extends Controller
          }
     }
 
+    public function findAll(){
+        $repo = $this->getDoctrine()->getRepository(Category::class);
+        $categories = $repo->findAll();
+
+        return $categories;
+    }
+
+    public function findByName($name){
+        $repo = $this->getDoctrine()->getRepository(Category::class);
+        $category = $repo->findByName($name);
+
+        return $category;
+    }
+
+    public function findByID($id){
+        $repo = $this->getDoctrine()->getRepository(Category::class);
+        $category = $repo->find($id);
+
+        return $category;
+    }
+
 }
