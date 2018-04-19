@@ -111,4 +111,8 @@ class Product
 
         return $this;
     }
+
+    public function serializeToJson(){
+        return array("Id"=>$this->getId(),"Title"=>$this->getTitle(),"Description"=>$this->getDescription(),"Category"=>$this->getCategory()->getCategory(),"Price"=>$this->getPrice(),"Upvotes"=>$this->getPopularity());
+    }
 }
