@@ -53,7 +53,8 @@ class SubscriptionRepository extends ServiceEntityRepository
             ->where('s.user_id = :user_id')
             ->setParameter('user_id', $user_id)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
+            //->getOneOrNullResult();
     }
 
     public function findByEvent($event_id){
@@ -61,6 +62,7 @@ class SubscriptionRepository extends ServiceEntityRepository
             ->where('s.event_id = :event_id')
             ->setParameter('event_id', $event_id)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
+            //->getOneOrNullResult();
     }
 }

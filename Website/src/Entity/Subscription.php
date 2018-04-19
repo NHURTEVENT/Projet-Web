@@ -26,7 +26,7 @@ class Subscription
         return $this->id;
     }
 
-    public function getUserId(): ?int
+    public function getUserId(): User
     {
         return $this->user_id;
     }
@@ -38,7 +38,7 @@ class Subscription
         return $this;
     }
 
-    public function getEventId(): ?int
+    public function getEventId(): Event
     {
         return $this->event_id;
     }
