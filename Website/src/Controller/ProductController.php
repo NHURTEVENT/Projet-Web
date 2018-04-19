@@ -275,18 +275,78 @@ class ProductController extends Controller
 
 
     /**
-     * @Route ("/category/{category}")
+     * @Route ("/shop/{category}")
      */
     public function sortByCategory($category){
         $repo = $this->getDoctrine()->getRepository(Product::class);
         $products = $repo->sortByCategory($category);
 
+        /*
         foreach ($products as $product){
             echo $product->getTitle().' ';
         }
 
         return new Response('belong to the category '.$category);
+        */
+
+
+        $bestSellers = $this->getBestSeller();
+        $modo = 0;
+        $admin =1;
+
+        return $this->render('pageBoutique.html.twig',array("bestSellers"=>$bestSellers,"products"=>$products,"modo"=>$modo,"admin"=>$admin));
     }
+
+
+    /**
+     * @Route ("/shop/price/up")
+     */
+    public function sortByPriceAsc(){
+        $repo = $this->getDoctrine()->getRepository(Product::class);
+        $products = $repo->sortByPriceAsc();
+
+        /*
+        foreach ($products as $product){
+            echo $product->getTitle().' ';
+        }
+
+        return new Response('belong to the category '.$category);
+        */
+
+
+        $bestSellers = $this->getBestSeller();
+        $modo = 0;
+        $admin =1;
+
+        return $this->render('pageBoutique.html.twig',array("bestSellers"=>$bestSellers,"products"=>$products,"modo"=>$modo,"admin"=>$admin));
+    }
+
+
+
+    /**
+     * @Route ("/shop/price/down")
+     */
+    public function sortByPriceDesc(){
+        $repo = $this->getDoctrine()->getRepository(Product::class);
+        $products = $repo->sortByPriceDesc();
+
+        /*
+        foreach ($products as $product){
+            echo $product->getTitle().' ';
+        }
+
+        return new Response('belong to the category '.$category);
+        */
+
+
+        $bestSellers = $this->getBestSeller();
+        $modo = 0;
+        $admin =1;
+
+        return $this->render('pageBoutique.html.twig',array("bestSellers"=>$bestSellers,"products"=>$products,"modo"=>$modo,"admin"=>$admin));
+    }
+
+
 
     public function getAll(){
         $repo = $this->getDoctrine()->getRepository(Product::class);

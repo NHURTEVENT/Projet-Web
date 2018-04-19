@@ -32,7 +32,7 @@ class Idea
     private $upvotes;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", cascade="persist")
      */
     private $id_creator;
 
@@ -77,12 +77,12 @@ class Idea
         return $this;
     }
 
-    public function getIdCreator(): ?int
+    public function getIdCreator(): ?User
     {
         return $this->id_creator;
     }
 
-    public function setIdCreator(int $id_creator): self
+    public function setIdCreator(User $id_creator): self
     {
         $this->id_creator = $id_creator;
 

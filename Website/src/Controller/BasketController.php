@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Basket;
 use App\Entity\Product;
 use App\Form\Basket1Type;
+use App\Form\BasketType;
 use App\Repository\BasketRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,14 +27,28 @@ class BasketController extends Controller
     }
 
     /**
-     * @Route("/new", name="basket_new", methods="GET|POST")
+     * @Route("/new/{product}", name="basket_new", methods="GET")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, $product): Response
     {
         $basket = new Basket();
-        $form = $this->createForm(Basket1Type::class, $basket);
-        $form->handleRequest($request);
+        $basket->setQuantity(1);
+        $session = new Session();
+        $user = $session->get('user');
+        var_dump($user);
+        echo "bbbbbbbbbbbbbb";
 
+        $prod = $this->getDoctrine()->getRepository(Product::class)->find($product);
+        $basket->setProductId($prod);
+        $basket->setUserId($user);
+        $em = $this->getDoctrine()->getManager();
+        var_dump($basket);
+        $em->persist($basket);
+        $em->flush();
+
+        //$form = $this->createForm(Basket1Type::class, $basket);
+        //$form->handleRequest($request);
+/*
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($basket);
@@ -41,11 +56,15 @@ class BasketController extends Controller
 
             return $this->redirectToRoute('basket_index');
         }
+*/
 
-        return $this->render('basket/new.html.twig', [
+/*      return $this->render('basket/new.html.twig', [
             'basket' => $basket,
             'form' => $form->createView(),
         ]);
+*/      echo "aaaaaaaaaaaaaaaaaaaaaaaaaa";
+        var_dump($user);
+        //return $this->redirectToRoute('basket_index');
     }
 
     /**
