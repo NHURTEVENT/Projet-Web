@@ -47,4 +47,8 @@ class EventRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function reportEvent($event) {
+
+    }
 }

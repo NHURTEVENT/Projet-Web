@@ -1,27 +1,44 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block body %}
-<h1><a href="/event/{{ event.getId }}">{{ event.getTitle }}</a></h1>
+{% if user is null %}
+        <p>You must be logged in to access events !</p>
+        <a href="/home">Back to home page</a>
+{% else %}
+        <h1><a href="/event/{{ event.getId }}">{{ event.getTitle }}</a></h1>
 
-<h3>Photos</h3>
-<p>Photos Here ...</p>
+        <h3>Photos</h3>
+        <p>Photos Here ...</p>
 
-<h3>Description</h3>
-<p>{{ event.getDescription }}</p>
+        <h3>Description</h3>
+        <p>{{ event.getDescription }}</p>
 
-<h3>Dates</h3>
-<p>Begin : {{ event.getBeginDate.format('d/m/Y') }} End : {{ event.getEndDate.format('d/m/Y') }}</p>
+        <h3>Dates</h3>
+        <p>Begin : {{ event.getBeginDate.format('d/m/Y') }} End : {{ event.getEndDate.format('d/m/Y') }}</p>
 
-<a id="like" href="#">Like</a>
-<a href="/event/{{ event.getId }}/comment">Add Comment</a>
+        <!-- Call functions to send AJAX Request
+        <a href="#" onclick="like()">Like</a>
+        <a href="#" onclick="subscribe()">Subscribe</a>
+        -->
 
-<h3>Comments</h3>
-{% for comment in comments %}
+        <a href="/event/{{ event.getId }}/like">like</a>
+        <a href="/event/{{ event.getId }}/subscribe">Subscribe</a>
+        <a href="/event/{{ event.getId }}/comment">Comment</a>
 
-    <p><strong>{{ comment.getUserId.getUsername }}</strong> : {{ comment.getText }}</p>
+    {% if user.getModo == true %}
+        <!-- <a id="report" href="#" onclick="report()">Report</a> -->
+        <a href="/event/{{ event.getId }}/report">Report</a>
+    {% endif %}
 
-{% endfor %}
+        <h3>Comments</h3>
+        {% for comment in comments %}
 
+            <p><strong>{{ comment.getUserId.getUsername }}</strong> : {{ comment.getText }}</p>
+
+        {% endfor %}
+{% endif %}
 {% endblock %}
 
 
@@ -31,24 +48,60 @@
     <script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
     <script language = "javascript">
-        $(document).ready(function(){
-            $("#like").on("click", function(event){
-                $.ajax({
-                    url:        '/event/{id}',
-                    type:       'POST',
-                    dataType:   'text',
-                    async:      true,
+        function like() {
+            $.ajax({
+                url:        '/event/{id}',
+                type:       'POST',
+                dataType:   'text',
+                data:       'like',
+                async:      true,
 
-                    success: function(data, status) {
-                        alert("Success.");
-                    },
+                success: function(data, status) {
+                    alert("Successfully liked event." + data);
+                },
 
-                    error : function(xhr, textStatus, errorThrown) {
-                        alert('Ajax request failed.');
-                    }
-                });
+                error : function(xhr, textStatus, errorThrown) {
+                    alert('Failed to like event. ' + errorThrown);
+                }
             });
-        });
+        }
+
+        function report() {
+            $.ajax({
+                url:        '/event/{id}',
+                type:       'POST',
+                dataType:   'text',
+                data:       'report',
+                async:      true,
+
+                success: function(data, status) {
+                    alert("Successfully reported event." + data);
+                },
+
+                error : function(xhr, textStatus, errorThrown) {
+                    alert('Failed to report event. ' + errorThrown);
+                }
+            });
+        }
+
+        function subscribe() {
+            $.ajax({
+                url:        '/event/{id}',
+                type:       'POST',
+                dataType:   'text',
+                data:       'subscribe',
+                async:      true,
+
+                success: function(data, status) {
+                    alert("Successfully subscribe event." + data);
+                },
+
+                error : function(xhr, textStatus, errorThrown) {
+                    alert('Failed to subscribe to event. ' + errorThrown);
+                }
+            });
+        }
+
     </script>
 
 {% endblock %}

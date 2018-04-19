@@ -14,7 +14,9 @@ use App\Entity\Event;
 
 // Required Components
 use App\Entity\LikedEvent;
+use App\Repository\EventRepository;
 use App\Repository\LikedEventRepository;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,17 +35,18 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EventController extends Controller {
 
-
-
     /** @Route("/home") */
     public function viewAllEvents() {
+
+        $session = new Session();
 
         // Retrieve data from DB
         $events = $this->retrieveAllEvents();
 
         // Render everything
         return $this->render('events.html.twig', array(
-            'events' => $events
+            'events' => $events,
+            'user' => $session->get('user')
         ));
     }
 
@@ -52,20 +55,46 @@ class EventController extends Controller {
     /** @Route("/event/{event_id}") */
     public function viewEvent($event_id, Request $request) {
 
+        $session = new Session();
         $event = $this->retrieveEventById($event_id);
 
-        //$request = (object) $request;
-
+        /* AJAX REQUEST MANAGEMENT
         if ($request->isXmlHttpRequest()) {
 
-            $this->like($event_id);
-            return new Response("1",200);
+            $content = $request->getContent();
 
+            if($content == 'like') {
+
+               // Create a new LikedEvent
+               $likedEvent = new LikedEvent();
+               $likedEvent->setUserId($session->get('user'));
+               $likedEvent->setEventId($event);
+
+               // Add to DB
+               //$em = $this->getDoctrine()->getManager();
+               //$em->persist($likedEvent);
+               //$em->flush();
+
+               return new Response('LIKE_SUCCESS', 200);
+
+           } else if($content == 'report') {
+
+               return new Response('REPORT_SUCCESS', 200);
+
+           } else if($content == 'subscribe') {
+
+               return new Response('SUBSCRIBE_SUCCESS', 200);
+
+           } else {
+               return new Response('Bad Request', 400);
+           }
         }
+        */
 
-        return $this->render('event.html.twig', array(
+            return $this->render('event.html.twig', array(
             'event' => $event,
-            'comments' => $this->getAllComments($event)
+            'comments' => $this->getAllComments($event),
+            'user' => $session->get('user')
         ));
 
     }
@@ -100,6 +129,7 @@ class EventController extends Controller {
             ->add('ponctual', CheckboxType::class, array('label' => 'Ponctuel :', 'required' => false))
             ->add('free', CheckboxType::class, array('label' => 'Gratuit :', 'required' => false))
             ->add('price', MoneyType::class, array('label' => 'Prix ', 'data' => 0, 'required' => false))
+            //->add('image', FileType::class, array('label' => 'Image'))
             ->add('save', SubmitType::class, array('label' => 'Publier'))
             ->getForm();
 
@@ -118,8 +148,6 @@ class EventController extends Controller {
             $event->setReported(false);
             // TODO ADD USER ID
 
-            //$this->addEventToDB($event);
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($event);
             $em->flush();
@@ -136,22 +164,29 @@ class EventController extends Controller {
         $session = new Session();
 
         if(NULL !== $session->get('user')) {
-            //$repo = $this->getDoctrine()->getRepository(LikedEventRepository::class);
-            //$repo->like($session->get('user'), $event);
 
-            $likedEvent = new LikedEvent();
-            $likedEvent->setUserId($session->get('user'));
-            $likedEvent->setEventId($event);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($likedEvent);
-            $em->flush();
+
+
 
         } else {
             // User is NOT connected
         }
 
     }
+
+    /**
+     * @Route("/event/{event_id}/report")
+     */
+    public function reportEvent($event_id) {
+
+        $repo = $this->getDoctrine()->getRepository(Event::class);
+        $repo->reportEvent($this->retrieveEventById($event_id));
+
+        return $this->redirect('/event/'.$event_id);
+    }
+
+
 
     public function addEventToDB($event) {
         $em = $this->getDoctrine()->getManager();

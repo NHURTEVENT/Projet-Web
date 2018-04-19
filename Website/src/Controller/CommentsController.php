@@ -20,6 +20,7 @@ class CommentsController extends Controller {
     public function addComment(Request $request, $event_id) {
 
         $session = new Session();
+        $user = $session->get('user');
 
         $formData = new CommentForm();
 
@@ -35,19 +36,22 @@ class CommentsController extends Controller {
 
             $commentInfo = new Comment();
             $commentInfo->setText($formData->getText());
-            $commentInfo->setUserId($session->get('user'));
+            $commentInfo->setUserId($user);
             $commentInfo->setEventId($this->retrieveEventByTitle($event_id));
             $commentInfo->setReported(false);
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($session->get('user'));
+            $em->merge($user);
             $em->persist($commentInfo);
             $em->flush();
 
             return $this->redirect('/event/'.$event_id);
         }
 
-        return $this->render('form.html.twig', array('form' => $form->createView()));
+        return $this->render('form.html.twig', array(
+            'form' => $form->createView(),
+            'user' => $user
+        ));
     }
 
     // Repeted

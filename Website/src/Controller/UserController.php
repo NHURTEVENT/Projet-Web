@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends Controller{
 
@@ -38,7 +39,14 @@ class UserController extends Controller{
         return new Response('User '.$username.' created!');
     }
 
-
+    /**
+     * @Route("/signout")
+     */
+    public function signout() {
+        $session = new Session();
+        $session->clear();
+        return $this->redirect('/home');
+    }
 
 
 

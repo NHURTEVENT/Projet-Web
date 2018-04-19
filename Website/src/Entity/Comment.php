@@ -27,7 +27,7 @@ class Comment
     private $reported;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", cascade="persist")
      */
     private $user_id;
 
