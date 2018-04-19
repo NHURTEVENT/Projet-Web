@@ -8,16 +8,24 @@
 
     <body>
         <header id="enTete">
+            <!-- Display of the BDE logo -->
             <img id="img" src="https://pbs.twimg.com/profile_images/693744907127750656/W_byIUTt_400x400.png" alt="logo bde"/>
 
             <section id="navigation">
+                <!-- Creation of the connection section -->
                 <p id="btn">
+                    {% if user == null %}
                     <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
                     <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
+                    {% elseif user == {{ connected }} %}
+                    <a href=""><button id="déconnexionHead">Déconnexion</button></a>
+                    {% endif %}
                 </p>
 
+                <!-- Welcome message -->
                 <p id="BVN">Bienvenue sur le site du BDE du Cesi Toulouse</p>
 
+                <!-- Creation of the navigation bar -->
                 <nav id="navBar">
                     <ul id="ul">
                         <li class="listeNav"><a href="pageAccueil.html.twig" >Fil d'actualité</a></li>
@@ -33,6 +41,7 @@
             <section id="container">
                 {% if modo == 1 and admin == 0 %}
                 <article id="barreAddEvent">
+                    <!-- Button link to pageCréationEvent -->
                     <h3>Ajouter un évènement:</h3>
                     <a href="pageCréationEvent.html.twig"><button id="ajoutEvent">+</button></a>
                 </article>
@@ -40,6 +49,7 @@
                 <h2>Evènement passés</h2>
 
                 <section id="Passe">
+                    <!-- Display of all past event -->
                     <!--{% for Event in 0..{{ Event.Passe }} %}-->
                         <article class="item ng-scope">
                             <a href="pageEventUnique.html.twig">
@@ -55,6 +65,7 @@
                 </article>
 
                 <section id="Futur">
+                    <!-- Display of all future event -->
                     <!--{% for Event in 0..{{ Event.Futur }}%}-->
                     <article class="item ng-scope">
                         <a href="pageEventUnique.html.twig">
@@ -65,21 +76,10 @@
                     <!--{% endfor %}-->
                 </section>
             </section>
-
-            <section id="aside">
-                <section id="boiteIdée">
-                    <a>Boite à Idées</a>
-                    {{ Idee.PlusVoter }}
-                </section>
-
-                <section id="EventMois">
-                    <a>Evènement du mois</a>
-                    {{ Event.Mois }}
-                </section>
-            </section>
         </section>
 
         <footer>
+            <!-- Creation of the contact us section -->
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
             <section class="container">
                 <article class="text-center center-block">
@@ -92,5 +92,4 @@
         </footer>
 
     </body>
-
 </html>

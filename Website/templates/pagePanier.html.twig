@@ -11,18 +11,24 @@
 
     <body>
         <header id="enTete">
-
+            <!-- Display of the BDE logo -->
             <img id="img" src="https://pbs.twimg.com/profile_images/693744907127750656/W_byIUTt_400x400.png" alt="logo bde"/>
 
             <section id="navigation">
-
+                <!-- Creation of the connection section -->
                 <p id="btn">
-                    <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
-                    <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
+                    {% if user == null %}
+                        <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
+                        <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
+                    {% elseif user == {{ connected }} %}
+                        <a href=""><button id="déconnexionHead">Déconnexion</button></a>
+                    {% endif %}
                 </p>
 
+                <!-- Welcome message -->
                 <p id="BVN">Bienvenue sur le site du BDE du Cesi Toulouse</p>
 
+                <!-- Creation of the navigation bar -->
                 <nav id="navBar">
                     <ul id="ul">
                         <li class="listeNav"><a href="pageAccueil.html.twig" >Fil d'actualité</a></li>
@@ -34,10 +40,7 @@
             </section>
         </header>
 
-            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+            <!-- Creation of the basket -->
             <section class="container">
                 <section class="row">
                     <section class="col-xs-8">
@@ -48,14 +51,18 @@
                                         <article class="col-xs-6">
                                             <h5><span class="glyphicon glyphicon-shopping-cart"></span> Mon panier</h5>
                                         </article>
+                                        <!-- Creation of the return to pageBoutique button -->
                                         <article class="col-xs-6">
+                                            <a href="pageBoutique.html.twig">
                                             <button type="button" class="btn btn-primary btn-sm btn-block">
-                                                <span class="glyphicon glyphicon-share-alt"></span> Continuer mes achats
+                                                <span class="glyphicon glyphicon-share-alt"></span>Continuer mes achats
                                             </button>
+                                            </a>
                                         </article>
                                     </section>
                                 </section>
                             </section>
+                            <!-- Display all products -->
                             <section class="panel-body">
                                 {% for Product in 0..{{ Produit.NombreTotal }} %}
                                 <section class="row">
@@ -85,6 +92,7 @@
                             <section class="panel-footer">
                                 <section class="row text-center">
                                     <article class="col-xs-9">
+                                        <!-- Display the amount of the order -->
                                         <h4 class="text-right">Total <strong>{{ Panier.PrixTotal }}</strong></h4>
                                     </article>
                                     <article class="col-xs-3">
@@ -98,21 +106,10 @@
                     </section>
                 </section>
 
-                <section id="aside">
-                    <section id="boiteIdée">
-                        <a href="pageBoiteIdée.html.twig">Boite à Idées</a>
-                        {{ Idee.PlusVoter }}
-                    </section>
-
-                    <section id="EventMois">
-                        <a>Evènement du mois</a>
-                        {{ Event.Mois }}
-                    </section>
-                </section>
-
             </section>
 
         <footer>
+            <!-- Creation of the contact us section -->
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
             <section class="container">
                 <article class="text-center center-block">

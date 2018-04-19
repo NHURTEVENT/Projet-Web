@@ -72,8 +72,8 @@ footer{
 
 .evenement{
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    margin-left: 30%;
 }
 
 .imgEvent{
@@ -85,12 +85,6 @@ footer{
 .bouton{
     display: block;
     flex-direction: row;
-}
-
-#aside{
-    display: flex;
-    flex-direction: column;
-    margin-right: 1%
 }
 
 .nomEvent{

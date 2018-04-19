@@ -12,8 +12,12 @@
 
             <section id="navigation">
                 <p id="btn">
-                    <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
-                    <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
+                    {% if user == null %}
+                        <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
+                        <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
+                    {% elseif user == {{ connected }} %}
+                        <a href=""><button id="déconnexionHead">Déconnexion</button></a>
+                    {% endif %}
                 </p>
 
                 <p id="BVN">Bienvenue sur le site du BDE du Cesi Toulouse</p>
@@ -66,18 +70,6 @@
                         <button>Soumettre</button>
                     </section>
 
-                </section>
-
-                <section id="aside">
-                    <article id="boiteIdée">
-                        <a>Boite à Idées</a>
-                        {{ Idee.PlusVoter }}
-                    </article>
-
-                    <article id="EventMois">
-                        <a>Evènement du mois</a>
-                        {{ Event.Mois }}
-                    </article>
                 </section>
             </section>
 
