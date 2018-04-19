@@ -51,6 +51,15 @@ class User
      */
     private $admin;
 
+
+
+    public function __construct()
+    {
+        $this->setModo(0);
+        $this->setAdmin(0);
+    }
+
+
     public function getId()
     {
         return $this->id;

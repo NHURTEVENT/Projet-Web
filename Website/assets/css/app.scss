@@ -1,7 +1,519 @@
-body {
-    background-color: black;
+body{
+  margin:0px;
+  font-family: DIN,"PT Sans",sans-serif;
 }
 
-h1 {
+#ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.listeNav {
+  float: left;
+}
+
+.listeNav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.listeNav a:hover {
+  background-color: darkorange;
+}
+
+header{
+  background-color: white;
+}
+
+footer{
+  margin-left:5%;
+  margin-bottom: 3%;
+}
+
+/*css accueil*/
+
+#enTete{
+  display: flex;
+}
+
+#img:nth-child(1){
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#navigation:nth-child(2){
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+#btn{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#BVN{
+  display: flex;
+  justify-content: center;
+  font-size: 20px
+}
+
+/* css pageAccueil && pageEventUnique*/
+
+.evenement{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imgEvent{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bouton{
+  display: block;
+  flex-direction: row;
+}
+
+#aside{
+  display: flex;
+  flex-direction: column;
+  margin-right: 1%
+}
+
+.nomEvent{
+  display: flex;
+  justify-content: center;
+}
+
+/* css pageBoiteIdée*/
+
+#central{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#centre{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#choix{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#liste{
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  list-style-type: none
+}
+
+#upvote{
+  display:flex;
+  flex-direction: column;
+  margin-left: 10%;
+}
+
+#creeEvent{
+  display: flex;
+  flex-direction: column;
+}
+
+#listeIdee{
+  text-decoration: none;
+}
+
+#Titre{
+  margin-left: 35%;
+}
+
+#addIdea{
+  border: solid;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-right: 20px;
+  width:50%;
+}
+
+#titreAjoutIdee{
+  display: flex;
+  justify-content: center;
+}
+
+#idee{
+  display: flex;
+  justify-content: center;
+}
+
+#titreIdee{
+  margin-left:10px;
+}
+
+#ajoutIdee{
+  display: flex;
+  margin-left: 45%;
+  width:80px;
+}
+
+/*css pageBoutique */
+
+#baseBoutique{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20%;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: 20%;
+}
+
+#dropbtn{
+  width: fit-content;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 25%;
+}
+
+#Filtre{
+  position: relative;
+  display: inline-block;
+}
+
+#dropdown{
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+}
+
+#dropdown a{
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdown a:hover{
+  background-color: darkorange;
+}
+
+#filtre:hover #dropdown{
+  display: block;
+}
+
+#filtre:hover #dropbtn{
+  background-color: darkorange;
+}
+
+#barre1{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#btnPanier{
+  width: fit-content;
+  height: fit-content;
+}
+
+.prodCom{
+  display: block;
+  width: 200px;
+  height: 250px;
+}
+
+#container .item{
+  border: 1px solid;
+  display: inline-block;
+  margin: 0 8px 15px;
+  width: 170px;
+}
+
+#barre2{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#searchthis{
+  display:flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+#container{
+  cursor: default;
+  margin: 0 auto 100px;
+  padding: 10px 25px;
+  width: 580px;
+}
+
+#prodPlusCommandé{
+  display: flex;
+  margin: 0 auto 100px;
+  padding: 10px 25px;
+  width: 580px;
+}
+
+/*css Event*/
+
+#center{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left:20%
+}
+
+#Passe{
+  display: flex;
+  flex-direction: row;
+}
+
+.eventPasse, .event{
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  width: 200px;
+  height: 250px;
+  margin-right: 3px;
+}
+
+.Nom{
+  display: flex;
+  padding-top: 20px;
+}
+
+#Futur{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#ajoutEvent{
+  font-size: 20px;
+  margin-left: 5px;
+  width:50px;
+  height: 50px;
+}
+
+#barreAddEvent{
+  display:flex;
+}
+
+/*css inscription et connexion*/
+
+#inscription-connexion{
+  margin-top: 5%;
+  margin-right: 35%;
+  margin-left: 35%;
+}
+
+#Title{
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.required{
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+
+#link{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2%
+}
+
+#connexion{
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+.confirmation{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+/*css panier*/
+
+#Panier{
+  border:solid;
+  margin-top:5%;
+  margin-left: 17%;
+  margin-right: 17%;
+  margin-bottom: 7%;
+}
+
+#titrePanier{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#produitAcheté{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.produit{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+#prixTotal{
+  margin-bottom: 5px;
+}
+
+/*css création event*/
+
+#coeur{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-left: 15%;
+}
+
+#TitreCréationEvent{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#paramEvent{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10px;
+}
+
+#imageEvent{
+  display: flex;
+
+}
+
+#fichier{
+  display: flex;
+  margin-left: 10px;
+}
+
+#oui{
+  margin-left: 10px;
+}
+
+/*css nouveau produit*/
+
+#titreAjoutProd{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#selectNomProd{
+  margin-bottom: 10px;
+}
+
+#selectPrixProd{
+  margin-bottom: 10px;
+}
+
+#selectDescription{
+  margin-bottom: 10px;
+}
+
+#selectImg{
+  margin-bottom: 10px;
+}
+
+#selectCatégorie{
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 700px){
+  #aside{
+    position:absolute;
+    left: -999em;
+  }
+
+  .evenement{
+    margin-left:0px;
+  }
+
+  #navBar{
+    width: 100%;
+    padding: 8px 0;
+    border-right: 1px solid #ddd;
+  }
+
+  #navBar a{
     color: white;
+    -webkit-transition: all 0.08s linear;
+    -moz-transition: all 0.08s linear;
+    -o-transition: all 0.08s linear;
+    transition: all 0.08s linear;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  #navBar a:hover{
+    background-color: darkorange;
+  }
+
+  #img{
+    width:0px;
+    height:0px;
+  }
+
+  footer{
+    margin-left:1px;
+  }
+
+  #Passe, #Futur{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eventPasse, .event{
+    margin-bottom: 3px;
+  }
+
 }

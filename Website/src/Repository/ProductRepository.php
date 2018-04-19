@@ -48,6 +48,16 @@ class ProductRepository extends ServiceEntityRepository
     }
     */
 
+    public function findAllCategories(){
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.category','c')
+            ->select('c.category')
+            ->orderBy('c.category','DESC')
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
     public function findMostPopular() :array {
 
         $qb = $this->createQueryBuilder('p')
@@ -100,5 +110,6 @@ class ProductRepository extends ServiceEntityRepository
 
         return $qb->execute();
     }
+
 
 }

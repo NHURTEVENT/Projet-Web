@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Basket{% endblock %}
+
+{% block body %}
+    <h1>Basket</h1>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for basket in baskets %}
+            <tr>
+                <td>{{ basket.quantity }}</td>
+                <td>{{ basket.getproduct_id.getTitle }}</td>
+                {{ include('basket/_delete_form.html.twig') }}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('basket_index') }}">back to list</a>
+
+
+
+{% endblock %}

@@ -13,7 +13,7 @@ class Basket
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", cascade="persist")
      */
     private $user_id;
 
@@ -31,7 +31,7 @@ class Basket
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getuser_id()
     {
         return $this->user_id;
     }
@@ -47,7 +47,7 @@ class Basket
     /**
      * @return mixed
      */
-    public function getProductId()
+    public function getproduct_id()
     {
         return $this->product_id;
     }

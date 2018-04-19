@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Basket;
+use App\Entity\Product;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -48,13 +50,23 @@ class BasketRepository extends ServiceEntityRepository
     }
     */
 
-    public function findBasketEntry($user_id,$product_id){
+    public function findBasketEntry($user,$product){
         return $this->createQueryBuilder('b')
                ->where('b.product_id = :product_id')
                ->andWhere('b.user_id = :user_id')
-               ->setParameter('user_id', $user_id)
-               ->setParameter('product_id', $product_id)
+               ->setParameter('user_id', $user)
+               ->setParameter('product_id', $product)
                ->getQuery()
                ->getOneOrNullResult();
+    }
+
+    public function findBasket(User $user) :array{
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.product_id','b')
+            ->where('p.user_id = :user_id')
+            ->setParameter('user_id',$user)
+            ->getQuery();
+
+        return $qb->execute();
     }
 }
