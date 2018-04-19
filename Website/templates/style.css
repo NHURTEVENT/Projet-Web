@@ -34,7 +34,8 @@ header{
 }
 
 footer{
-    margin-left:5%;
+    margin-left:15%;
+    margin-top: 5%;
     margin-bottom: 3%;
 }
 
@@ -178,7 +179,6 @@ footer{
 #baseBoutique{
     display: flex;
     flex-direction: row;
-    margin-left: 20%;
 }
 
 #dropbtn{
@@ -211,11 +211,11 @@ footer{
     background-color: darkorange;
 }
 
-#filtre:hover #dropdown{
+#Filtre:hover #dropdown{
     display: block;
 }
 
-#filtre:hover #dropbtn{
+#Filtre:hover #dropbtn{
     background-color: darkorange;
 }
 
@@ -410,7 +410,6 @@ footer{
 
 #imageEvent{
     display: flex;
-
 }
 
 #fichier{
@@ -450,12 +449,13 @@ footer{
     margin-bottom: 10px;
 }
 
-@media screen and (max-width: 700px){
-    #aside{
-        position:absolute;
-        left: -999em;
-    }
+#milieu{
+    margin-left:30%;
+}
 
+/*Media queries*/
+
+@media screen and (max-width: 700px){
     .evenement{
         margin-left:0px;
     }
@@ -497,6 +497,10 @@ footer{
 
     .eventPasse, .event{
         margin-bottom: 3px;
+    }
+
+    #baseBoutique{
+        margin-left: 0%;
     }
 
 }
