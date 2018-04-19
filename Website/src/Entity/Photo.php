@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PhotoRepository")
@@ -82,26 +83,38 @@ class Photo
         return $this;
     }
 
-    public function getUserId(): ?int
+    public function getUserId(): User
     {
         return $this->user_id;
     }
 
-    public function setUserId(int $user_id): self
+    public function setUserId(User $user_id)
     {
         $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function getEventId(): ?int
+    public function getEventId(): Event
     {
         return $this->event_id;
     }
 
-    public function setEventId(int $event_id): self
+    public function setEventId(Event $event_id)
     {
         $this->event_id = $event_id;
+
+        return $this;
+    }
+
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    public function setPath($path)
+    {
+        $this->path = $path;
 
         return $this;
     }

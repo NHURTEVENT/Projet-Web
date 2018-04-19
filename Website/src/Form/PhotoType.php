@@ -15,8 +15,6 @@ class PhotoType extends AbstractType
             ->add('description')
             ->add('url')
             ->add('reported')
-            ->add('user_id')
-            ->add('event_id')
         ;
     }
 

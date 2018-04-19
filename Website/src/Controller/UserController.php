@@ -116,7 +116,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/signout")
+     * @Route("/signout/")
      */
     public function signout() {
         $session = new Session();

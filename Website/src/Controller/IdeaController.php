@@ -106,11 +106,16 @@ class IdeaController extends Controller
         $upvote->setUserId($user);
         $upvote->setIdeaId($idea);
 
+        var_dump($user);
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->persist($upvote);
         $em->flush();
 
-        return $this->redirectToRoute('idea_index');
+        var_dump($user);
+
+
+        //return $this->redirectToRoute('idea_index');
     }
 }

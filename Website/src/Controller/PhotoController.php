@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
 use App\Entity\Photo;
 use App\Form\PhotoType;
 use App\Repository\PhotoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -24,11 +26,20 @@ class PhotoController extends Controller
     }
 
     /**
-     * @Route("/new", name="photo_new", methods="GET|POST")
+     * @Route("/new/{event_id}", name="photo_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, $event_id): Response
     {
+        $session = new Session();
+        $user = $session->get('user');
+
+        $repo = $this->getDoctrine()->getRepository(Event::class);
+        $event = $repo->find($event_id);
+
         $photo = new Photo();
+        $photo->setUserId($user);
+        $photo->setEventId($event);
+
         $form = $this->createForm(PhotoType::class, $photo);
         $form->handleRequest($request);
 
@@ -87,4 +98,5 @@ class PhotoController extends Controller
 
         return $this->redirectToRoute('photo_index');
     }
+
 }

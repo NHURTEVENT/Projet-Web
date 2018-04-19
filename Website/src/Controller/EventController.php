@@ -14,6 +14,8 @@ use App\Entity\Event;
 
 // Required Components
 use App\Entity\LikedEvent;
+use App\Entity\Photo;
+use App\Entity\PhotoForm;
 use App\Repository\EventRepository;
 use App\Repository\LikedEventRepository;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -43,6 +45,7 @@ class EventController extends Controller {
         // Retrieve data from DB
         $events = $this->retrieveAllEvents();
 
+
         // Render everything
         return $this->render('events.html.twig', array(
             'events' => $events,
@@ -50,13 +53,12 @@ class EventController extends Controller {
         ));
     }
 
-
-
     /** @Route("/event/{event_id}") */
     public function viewEvent($event_id, Request $request) {
 
         $session = new Session();
         $event = $this->retrieveEventById($event_id);
+        $photos = $this->retrieveAllPhotos();
 
         /* AJAX REQUEST MANAGEMENT
         if ($request->isXmlHttpRequest()) {
@@ -91,10 +93,11 @@ class EventController extends Controller {
         }
         */
 
-            return $this->render('event.html.twig', array(
+        return $this->render('event.html.twig', array(
             'event' => $event,
             'comments' => $this->getAllComments($event),
-            'user' => $session->get('user')
+            'user' => $session->get('user'),
+            'photos' => $photos
         ));
 
     }
@@ -113,7 +116,6 @@ class EventController extends Controller {
         return new Response('are the events this month');
 
     }
-
 
     /** @Route("/events/add") */
     public function addEvent(Request $request) {
@@ -159,6 +161,47 @@ class EventController extends Controller {
 
     }
 
+
+    /**
+     * @Route("/event/{event_id}/addphoto")
+     */
+    public function addPhoto(Request $request, $event_id)
+    {
+
+        $formData = new PhotoForm();
+
+        // Create Form
+        $form = $this->createFormBuilder($formData)
+            ->add('description', TextareaType::class, array('label' => 'Description :'))
+            ->add('image', FileType::class, array('label' => 'Image'))
+            ->add('save', SubmitType::class, array('label' => 'Publier'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $session = new Session();
+            $user = $session->get('user');
+
+            $photo = new Photo();
+            $photo->setDescription($formData->getDescription());
+            $photo->setUrl($formData->getImage());
+            $photo->setReported(false);
+            $photo->setEventId($this->retrieveEventById($event_id));
+            $photo->setUserId($user);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->persist($photo);
+            $em->flush();
+
+            return $this->redirect('/home');
+        }
+
+        return $this->render('form.html.twig', array('form' => $form->createView()));
+    }
+
     public function like($event) {
 
         $session = new Session();
@@ -186,8 +229,6 @@ class EventController extends Controller {
         return $this->redirect('/event/'.$event_id);
     }
 
-
-
     public function addEventToDB($event) {
         $em = $this->getDoctrine()->getManager();
         $em->persist($event);
@@ -201,6 +242,11 @@ class EventController extends Controller {
 
     public function retrieveAllEvents() {
         $qb = $this->getDoctrine()->getRepository(Event::class);
+        return $qb->findAll();
+    }
+
+    public function retrieveAllPhotos() {
+        $qb = $this->getDoctrine()->getRepository(Photo::class);
         return $qb->findAll();
     }
 
