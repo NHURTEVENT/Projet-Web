@@ -24,7 +24,7 @@ class Upvote
     /**
      * @return mixed
      */
-    public function getUserId(): ?int
+    public function getUserId()
     {
         return $this->user_id;
     }
@@ -32,7 +32,7 @@ class Upvote
     /**
      * @param mixed $user_id
      */
-    public function setUserId($user_id): self
+    public function setUserId($user_id)
     {
         $this->user_id = $user_id;
     }
@@ -40,7 +40,7 @@ class Upvote
     /**
      * @return mixed
      */
-    public function getIdeaId(): ?int
+    public function getIdeaId()
     {
         return $this->idea_id;
     }
@@ -48,7 +48,7 @@ class Upvote
     /**
      * @param mixed $idea_id
      */
-    public function setIdeaId($idea_id): self
+    public function setIdeaId($idea_id)
     {
         $this->idea_id = $idea_id;
     }

@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class SignUpInfo {
+class SignUpForm {
 
     /** @Assert\NotBlank(message="Ce champ est obligatoire") */
     protected $name;
@@ -14,16 +14,6 @@ class SignUpInfo {
 
     /** @Assert\NotBlank(message="Ce champ est obligatoire") */
     protected $username;
-
-    /**
-     * @Assert\NotNull()
-     */
-    private $name;
-
-    /**
-     * @Assert\NotNull()
-     */
-    private $surname;
 
     /** @Assert\Length(min=5, minMessage="Doit faire plus de 5 caractères")
     *   @Assert\Regex("/[A-Z]/", message="Doit contenir une majuscule")
@@ -49,18 +39,11 @@ class SignUpInfo {
     /**
      * @param mixed $username
      */
-    public function setUsername($username): void
+    public function setUsername($username)
     {
         $this->username = $username;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     public function setName($name) {
         $this->name = $name;
@@ -70,25 +53,6 @@ class SignUpInfo {
         $this->surname = $surname;
     }
 
-    public function setUsername($username) {
-        $this->username = $username;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * @param mixed $surname
-     */
-    public function setSurname($surname): void
-    {
-        $this->surname = $surname;
-    }
 
     /**
      * @return mixed
@@ -101,7 +65,7 @@ class SignUpInfo {
     /**
      * @param mixed $password
      */
-    public function setPassword($password): void
+    public function setPassword($password)
     {
         $this->password = $password;
     }
@@ -117,7 +81,7 @@ class SignUpInfo {
     /**
      * @param mixed $email
      */
-    public function setEmail($email): void
+    public function setEmail($email)
     {
         $this->email = $email;
     }

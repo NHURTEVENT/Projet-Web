@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class SignInInfo {
+class SignInForm {
 
     protected $email;
     protected $password;

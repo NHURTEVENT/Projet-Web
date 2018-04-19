@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Idea;
+use App\Entity\Upvote;
 use App\Form\IdeaType;
 use App\Repository\IdeaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -89,6 +90,26 @@ class IdeaController extends Controller
             $em->remove($idea);
             $em->flush();
         }
+
+        return $this->redirectToRoute('idea_index');
+    }
+
+    /**
+     * @Route("/upvote/{id}", name="idea_upvote", methods="GET|POST")
+     */
+    public function upvote(Idea $idea) {
+
+        $session = new Session();
+        $user = $session->get('user');
+
+        $upvote = new Upvote();
+        $upvote->setUserId($user);
+        $upvote->setIdeaId($idea);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->persist($upvote);
+        $em->flush();
 
         return $this->redirectToRoute('idea_index');
     }
