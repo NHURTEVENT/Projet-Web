@@ -72,7 +72,11 @@
                     <p>{{ product.getTitle }}</p>
                     <p>{{ product.getDescription }}</p>
                     <p>{{ product.getPrice }}</p>
-                    <button>Ajouter au panier</button>
+                    <form method="post" action="{{ path('basket_new', {'product': product.id}) }}" onsubmit="return confirm('Are you sure you want to add this item?');">
+                        <input type="hidden" name="_method" value="GET|POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token('new' ~ product.id) }}">
+                        <button class="btn">Delete</button>
+                    </form>
                     {% if modo == 1 and admin ==0 %}
                         <button class="delete">Supprimer</button>
                     {% endif %}

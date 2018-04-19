@@ -316,7 +316,7 @@ class ProductController extends Controller
             }*/
             //var_dump($user);
             //return new Response("hi");
-            return $this->render('basket/show.html.twig', array('baskets' => $product));
+            return $this->render('basket/index.html.twig', array('baskets' => $product));
         }
         else{
             return new Response("You must be loged in to consult your basket");

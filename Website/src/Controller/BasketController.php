@@ -49,45 +49,55 @@ class BasketController extends Controller
     }
 
     /**
-     * @Route("/{user_id}", name="basket_show", methods="GET")
+     * @Route("/{basket}", name="basket_show", methods="GET")
      */
     public function show(Basket $basket): Response
     {
-        return $this->render('basket/show.html.twig', ['basket' => $basket]);
+        $session = new Session();
+        $user = $session->get('User');
+        //once again $basket is id-product missnamed
+        $basket2 = $this->getDoctrine()->getRepository(BasketRepository::class)->findBasketEntry($user,$basket);
+
+        return $this->render('basket/show.html.twig', ['basket' => $basket2]);
     }
 
     /**
-     * @Route("/{user_id}/edit", name="basket_edit", methods="GET|POST")
+     * @Route("/{basket}/edit", name="basket_edit", methods="GET|POST")
      */
     public function edit(Request $request, Basket $basket): Response
     {
-        $form = $this->createForm(Basket1Type::class, $basket);
+        $session = new Session();
+        $user = $session->get('user');
+        //wrongly named variable, gets the product with corresponding id but id is called basket here
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($basket);
+        $basket2 = $this->getDoctrine()->getRepository(Basket::class)->findBasketEntry($user,$p);
+        $form = $this->createForm(Basket1Type::class, $basket2);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('basket_edit', ['user_id' => $basket->getUser_id()]);
+            return $this->redirectToRoute('basket_edit', ['user_id' => $basket2->getUser_id()]);
         }
 
         return $this->render('basket/edit.html.twig', [
-            'basket' => $basket,
+            'basket' => $basket2,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{product}", name="basket_delete", methods="DELETE")
+     * @Route("/{basket}", name="basket_delete", methods="DELETE")
      */
-    public function delete(Request $request, $product): Response
+    public function delete(Request $request, $basket): Response
     {
         $session = new Session();
-        $productEntity = $this->getDoctrine()->getRepository(Product::class)->find($product);
-        $basket = $this->getDoctrine()->getRepository(Basket::class)->findBasketEntry($session->get('user'),$productEntity);
+        $productEntity = $this->getDoctrine()->getRepository(Product::class)->find($basket);
+        $basket2 = $this->getDoctrine()->getRepository(Basket::class)->findBasketEntry($session->get('user'),$productEntity);
 
-        if ($this->isCsrfTokenValid('delete'.$basket->getProduct_id()->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$basket2->getProduct_id()->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($basket);
+            $em->remove($basket2);
             $em->flush();
 
 

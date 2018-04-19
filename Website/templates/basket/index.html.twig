@@ -8,17 +8,20 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Title</th>
+                <th>Description</th>
                 <th>Quantity</th>
-                <th>actions</th>
+                <th>action</th>
             </tr>
         </thead>
         <tbody>
         {% for basket in baskets %}
             <tr>
+                <td>{{ basket.product_id.title }}</td>
+                <td>{{ basket.product_id.description }}</td>
                 <td>{{ basket.quantity }}</td>
                 <td>
-                    <a href="{{ path('basket_show', {'user_id': basket.user_id.getUsername}) }}">show</a>
-                    <a href="{{ path('basket_edit', {'user_id': basket.user_id.getUsername}) }}">edit</a>
+                    {{ include('basket/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
