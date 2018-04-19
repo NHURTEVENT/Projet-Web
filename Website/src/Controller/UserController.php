@@ -8,6 +8,7 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -114,7 +115,14 @@ class UserController extends Controller
         return new Response('User '.$username.' created!');
     }
 
-
+    /**
+     * @Route("/signout")
+     */
+    public function signout() {
+        $session = new Session();
+        $session->clear();
+        return $this->redirect('/home');
+    }
 
 
 

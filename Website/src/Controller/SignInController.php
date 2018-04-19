@@ -48,14 +48,7 @@ class SignInController extends Controller {
             if(!is_null($user)) {
 
                 $session->set('signin', true);
-                $session->set('id_user', $user->getId());
-                $session->set('username', $user->getUsername());
-                $session->set('name', $user->getName());
-                $session->set('surname', $user->getSurname());
-                $session->set('email', $user->getEmail());
-                $session->set('is_admin', $user->getAdmin());
-                $session->set('is_mod', $user->getModo());
-                $session->set('user',$user);
+                $session->set('user', $user);
 
                 //return $this->render('testTemplates/success.html.twig', array('msg' => 'Successfully connected to '));
                 return $this->render('pageAccueil.html.twig',array());
@@ -63,7 +56,7 @@ class SignInController extends Controller {
 
                 $session->set('signin', false);
 
-                return $this->render('testTemplates/failure.html.twig', array('msg' => 'Wrong email or password'));
+                return $this->render('testTemplates/status.html.twig', array('status' => 'Failure', 'msg' => 'Wrong email or password'));
             }
         }
         return $this->render('form.html.twig', array('form' => $form->createView()));

@@ -6,7 +6,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class SignInInfo {
 
-    // TODO Remove either username OR email depending on what will be used for connection
     protected $email;
     protected $password;
 

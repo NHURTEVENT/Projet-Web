@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Twig\Node\Expression\Test\EvenTest;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SubscriptionRepository")
@@ -31,7 +32,7 @@ class Subscription
         return $this->user_id;
     }
 
-    public function setUserId(int $user_id): self
+    public function setUserId(User $user_id): self
     {
         $this->user_id = $user_id;
 
@@ -43,7 +44,7 @@ class Subscription
         return $this->event_id;
     }
 
-    public function setEventId(int $event_id): self
+    public function setEventId(Event $event_id): self
     {
         $this->event_id = $event_id;
 

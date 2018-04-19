@@ -68,4 +68,8 @@ class EventRepository extends ServiceEntityRepository
             ->getOneOrNullResult();*/
     }
 
+
+    public function reportEvent($event) {
+
+    }
 }

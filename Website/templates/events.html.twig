@@ -1,0 +1,18 @@
+
+    {% block loggedin %}
+        {% for event in events %}
+
+            <h1><a href="/event/{{ event.getId }}">{{ event.getTitle }}</a></h1>
+
+            <h3>Photos</h3>
+            <p>Photos Here ...</p>
+
+            <h3>Description</h3>
+            <p>{{ event.getDescription }}</p>
+
+            <h3>Dates</h3>
+            <p>Begin : {{ event.getBeginDate.format('d/m/Y') }} End : {{ event.getEndDate.format('d/m/Y') }}</p>
+            <br>
+        {% endfor %}
+    {% endblock %}
+

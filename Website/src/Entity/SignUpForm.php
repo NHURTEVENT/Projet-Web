@@ -15,11 +15,21 @@ class SignUpInfo {
     /** @Assert\NotBlank(message="Ce champ est obligatoire") */
     protected $username;
 
+    /**
+     * @Assert\NotNull()
+     */
+    private $name;
+
+    /**
+     * @Assert\NotNull()
+     */
+    private $surname;
+
     /** @Assert\Length(min=5, minMessage="Doit faire plus de 5 caractères")
     *   @Assert\Regex("/[A-Z]/", message="Doit contenir une majuscule")
     *   @Assert\Regex("/[0-9]/", message="Doit contenir un chiffre")
     */
-    protected $password;
+    private $password;
 
     /** @Assert\NotBlank(message="Ce champ est obligatoire") */
     protected $email;
@@ -36,12 +46,20 @@ class SignUpInfo {
         return $this->username;
     }
 
-    public function getPassword() {
-        return $this->password;
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
     }
 
-    public function getEmail() {
-        return $this->email;
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     public function setName($name) {
@@ -56,11 +74,51 @@ class SignUpInfo {
         $this->username = $username;
     }
 
-    public function setPassword($password) {
+    /**
+     * @return mixed
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @param mixed $surname
+     */
+    public function setSurname($surname): void
+    {
+        $this->surname = $surname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password): void
+    {
         $this->password = $password;
     }
 
-    public function setEmail($email) {
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
+    {
         $this->email = $email;
     }
 

@@ -27,7 +27,7 @@ class Comment
     private $reported;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", cascade="persist")
      */
     private $user_id;
 
@@ -65,24 +65,24 @@ class Comment
         return $this;
     }
 
-    public function getUserId(): ?int
+    public function getUserId(): ?User
     {
         return $this->user_id;
     }
 
-    public function setUserId(int $user_id): self
+    public function setUserId(User $user_id): self
     {
         $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function getEventId(): ?int
+    public function getEventId(): ?Event
     {
         return $this->event_id;
     }
 
-    public function setEventId(int $event_id): self
+    public function setEventId(Event $event_id): self
     {
         $this->event_id = $event_id;
 

@@ -55,7 +55,7 @@ class SignUpController extends Controller {
 
                 // Redirect
                 //return $this->redirectToRoute('/signup');
-                return $this->render('testTemplates/failure.html.twig', array('msg' => 'Username or email already taken'));
+                return $this->render('testTemplates/status.html.twig', array('status' => 'Failure', 'msg' => 'Username or email already taken'));
 
             } else {
 
@@ -80,7 +80,7 @@ class SignUpController extends Controller {
 
                 // Redirect to home page
                 //return $this->redirectToRoute('home');
-                return $this->render('testTemplates/status.html.twig.twig', array('msg' => 'Successfully created new user'));
+                return $this->render('testTemplates/status.html.twig', array('status' => 'Success', 'msg' => 'Successfully created new user'));
             }
         }
         return $this->render('form.html.twig', array('form' => $form->createView()));

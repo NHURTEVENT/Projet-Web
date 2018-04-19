@@ -26,24 +26,24 @@ class LikedEvent
         return $this->id;
     }
 
-    public function getUserId(): ?int
+    public function getUserId(): User
     {
         return $this->user_id;
     }
 
-    public function setUserId(int $user_id): self
+    public function setUserId(User $user_id)
     {
         $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function getEventId(): ?int
+    public function getEventId(): Event
     {
         return $this->event_id;
     }
 
-    public function setEventId(int $event_id): self
+    public function setEventId(Event $event_id)
     {
         $this->event_id = $event_id;
 

@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Event;
 use App\Entity\Subscription;
 use App\Form\SubscriptionType;
 use App\Repository\SubscriptionRepository;
+use Symfony\Component\HttpFoundation\Session\Session;
+use App\Entity\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -99,4 +100,29 @@ class SubscriptionController extends Controller
 
         return $this->redirectToRoute('subscription_index');
     }
+    /**
+     * @Route("/event/{event_id}/subscribe")
+     */
+    public function subscribe($event_id) {
+
+        $session = new Session();
+        $user = $session->get('user');
+
+        $subEvent = new Subscription();
+        $subEvent->setUserId($user);
+        $subEvent->setEventId($this->retrieveEventById($event_id));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->persist($subEvent);
+        $em->flush();
+
+        return $this->redirect('/event/'.$event_id);
+    }
+
+    public function retrieveEventById($event_id) {
+        $qb = $this->getDoctrine()->getRepository(Event::class);
+        return $qb->find($event_id);
+    }
+
 }

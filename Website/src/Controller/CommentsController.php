@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\CommentForm;
 use App\Entity\Comment;
@@ -15,10 +16,12 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CommentsController extends Controller {
 
-    /** @Route("/event/{title}/comment") */
-    public function addComment(Request $request, $title) {
+    /** @Route("/event/{event_id}/comment") */
+    public function addComment(Request $request, $event_id) {
 
         $session = new Session();
+        $user = $session->get('user');
+
         $formData = new CommentForm();
 
         // Create Form
@@ -33,27 +36,28 @@ class CommentsController extends Controller {
 
             $commentInfo = new Comment();
             $commentInfo->setText($formData->getText());
-            $commentInfo->setUserId($session->get('user'));
-            $commentInfo->setEventId($this->retrieveEventByTitle($title));
+            $commentInfo->setUserId($user);
+            $commentInfo->setEventId($this->retrieveEventByTitle($event_id));
             $commentInfo->setReported(false);
 
-            $this->publishComment($commentInfo);
+            $em = $this->getDoctrine()->getManager();
+            $em->merge($user);
+            $em->persist($commentInfo);
+            $em->flush();
 
+            return $this->redirect('/event/'.$event_id);
         }
 
-        return $this->render('form.html.twig', array('form' => $form->createView()));
-    }
-
-    public function publishComment($comment) {
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($comment);
-        $em->flush();
+        return $this->render('form.html.twig', array(
+            'form' => $form->createView(),
+            'user' => $user
+        ));
     }
 
     // Repeted
-    public function retrieveEventByTitle($title) {
+    public function retrieveEventByTitle($id) {
         $qb = $this->getDoctrine()->getRepository(Event::class);
-        return $qb->findOneBy(['title' => $title]);
+        return $qb->findOneBy(['id' => $id]);
     }
 }
 
