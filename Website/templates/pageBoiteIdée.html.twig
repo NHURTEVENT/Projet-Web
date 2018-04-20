@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="style.css">
         <meta name="keywords" content="boite,cesi,idée,bde"/>
         <title>Boite à idée</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
 
     <body>
@@ -13,12 +14,12 @@
 
             <section id="navigation">
                 <p id="btn">
-                    {% if user == null %}
-                        <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
-                        <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
-                    {% elseif user == {{ connected }} %}
-                        <a href=""><button id="déconnexionHead">Déconnexion</button></a>
-                    {% endif %}
+                    <!--{% if user == null %}-->
+                    <a href="pageInscription.html.twig" class="w3-btn">Inscription</a>
+                    <a href="pageConnexion.html.twig" class="w3-btn">Connexion</a>
+                    <!--{% elseif user == {{ connected }} %}-->
+                    <a href="" class="w3-btn">Déconnexion</a>
+                    <!--{% endif %}-->
                 </p>
 
                 <p id="BVN">Bienvenue sur le site du BDE du Cesi</p>
@@ -41,34 +42,32 @@
                         Liste d'idées d'évènements :
                     </article>
 
-                    <section id="choix">
+                    <section class="choix">
 
-                        <article id="listeIdee">
-                            <ul id="liste">
-                                {% for Idea in 0..{{ Idea.Nombre }} %}
-                                <li class="idée">{{ Idea.Title }}</li>
-                                {% enfor %}
-                            </ul>
+                        <article class="listeIdee">
+                            <!--{% for Idea in 0..{{ Idea.Nombre }} %}-->
+                            <p class="idee">{{ Idea.Title }}</p>
+                            <!--{% enfor %}-->
                         </article>
 
-                        <article id="upvote">
-                            {% for Idea in 0..{{ Idea.Nombre }} %}
+                        <article class="upvote">
+                            <!--{% for Idea in 0..{{ Idea.Nombre }} %}-->
                             <button>Upvote</button>
-                            {% enfor %}
+                            <!--{% enfor %}-->
                         </article>
-                        {% if modo == 1 %}
-                            <article id="creeEvent">
-                                {% for Idea in 0..{{ Idea.Nombre }} %}
-                                <a href="pageCréationEvent.html.twig"><button>Créer évènement</button></a>
-                                {% enfor %}
+                        <!--{% if modo == 1 %}-->
+                            <article class="creeEvent">
+                                <!--{% for Idea in 0..{{ Idea.Nombre }} %}-->
+                                <a href="pageCréationEvent.html.twig" class="w3-btn">Créer évènement</a>
+                                <!--{% enfor %}-->
                             </article>
-                        {% endif %}
+                        <!--{% endif %}-->
                     </section>
 
-                    <section id="choix">
-                        Soumettre une idée:
+                    <section class="choix">
+                        <p class="soumettre">Soumettre une idée:</p>
                         <input id="soumettreIdée">
-                        <button>Soumettre</button>
+                        <button class="soumettre">Soumettre</button>
                     </section>
 
                 </section>

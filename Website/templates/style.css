@@ -39,6 +39,8 @@ footer{
     margin-bottom: 3%;
 }
 
+
+
 /*css accueil*/
 
 #enTete{
@@ -110,7 +112,7 @@ footer{
     margin-right: 20%;
 }
 
-#choix{
+.choix{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,25 +120,25 @@ footer{
     margin-bottom: 5px;
 }
 
-#liste{
+.liste{
     display: flex;
     flex-direction: column;
     font-size: 20px;
     list-style-type: none
 }
 
-#upvote{
+.upvote{
     display:flex;
     flex-direction: column;
     margin-left: 10%;
 }
 
-#creeEvent{
+.creeEvent{
     display: flex;
     flex-direction: column;
 }
 
-#listeIdee{
+.listeIdee{
     text-decoration: none;
 }
 
@@ -159,7 +161,7 @@ footer{
     justify-content: center;
 }
 
-#idee{
+.idee{
     display: flex;
     justify-content: center;
 }
@@ -343,47 +345,15 @@ footer{
     margin-top: 5px;
 }
 
-/*css panier*/
+/*css panier, event unique*/
 
-#Panier{
-    border:solid;
-    margin-top:5%;
-    margin-left: 17%;
-    margin-right: 17%;
-    margin-bottom: 7%;
-}
-
-#titrePanier{
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-}
-
-#produitAcheté{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.produit{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2px;
-}
-
-#prixTotal{
-    margin-bottom: 5px;
-}
-
-.container{
+.container, .containerEventUnique, .containerProd{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     margin-left: 20%;
 }
+
 
 /*css création event*/
 
@@ -503,4 +473,80 @@ footer{
         margin-left: 0%;
     }
 
+    .w3-btn{
+
+        font-size: 10px;
+    }
+
+    .container{
+        width: 550px;
+
+    }
+
+    .col-xs-6 text-right, .product-name, .text-right, .product-description, .product-price{
+        font-size: 12px;
+    }
+
+    .idee{
+        font-size: 12px;
+    }
+
+    #Titre{
+        margin-left: 0%;
+    }
+
+    #centre{
+        margin-left: 5%;
+    }
+
+    .upvote{
+        margin-left: 0%;
+        font-size: 12px;
+    }
+
+    .soumettre{
+        font-size:12px;
+    }
+
+    .item ng-scope{
+        display: block;
+    }
+
+    #barre1{
+        justify-content: center;
+    }
+
+    #barre2{
+        display: block;
+        flex-direction: column;
+    }
+
+    #milieu{
+        margin-left:0px;
+    }
+
+    .containerProd{
+        margin-left:3%;
+    }
+
+    .titre{
+        font-size: 15px;
+    }
+
+    #add{
+        font-size: 15px;
+    }
+
+    #Passe, #Futur{
+        margin-bottom: 0px;
+    }
+
+    .containerEventUnique{
+        margin-left:5%;
+    }
+
+    #bouton{
+        display: flex;
+        flex-direction: column;
+    }
 }

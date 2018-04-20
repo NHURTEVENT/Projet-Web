@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="keywords" content="cesi,bde,exia,ei"/>
         <title>Accueil</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
 
     <body>
@@ -15,12 +16,12 @@
             <section id="navigation">
                 <!-- Creation of the connection section -->
                 <p id="btn">
-                    {% if user == null %}
-                        <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
-                        <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
-                    {% elseif user == {{ connected }} %}
-                        <a href=""><button id="déconnexionHead">Déconnexion</button></a>
-                    {% endif %}
+                    <!--{% if user == null %}-->
+                    <a href="pageInscription.html.twig" class="w3-btn">Inscription</a>
+                    <a href="pageConnexion.html.twig" class="w3-btn">Connexion</a>
+                    <!--{% elseif user == {{ connected }} %}-->
+                    <a href="" class="w3-btn">Déconnexion</a>
+                    <!--{% endif %}-->
                 </p>
 
                 <!-- Welcome message -->

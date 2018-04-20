@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
         <title>Ajouter Produit</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
 
     <body>
@@ -14,12 +15,12 @@
             <section id="navigation">
                 <!-- Creation of the connection section -->
                 <p id="btn">
-                    {% if user == null %}
-                        <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
-                        <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
-                    {% elseif user == {{ connected }} %}
-                        <a href=""><button id="déconnexionHead">Déconnexion</button></a>
-                    {% endif %}
+                    <!--{% if user == null %}-->
+                    <a href="pageInscription.html.twig" class="w3-btn">Inscription</a>
+                    <a href="pageConnexion.html.twig" class="w3-btn">Connexion</a>
+                    <!--{% elseif user == {{ connected }} %}-->
+                    <a href="" class="w3-btn">Déconnexion</a>
+                    <!--{% endif %}-->
                 </p>
 
                 <!-- Welcome message -->
@@ -37,7 +38,7 @@
             </section>
         </header>
 
-        <section class="container">
+        <section class="containerProd">
             <!-- Creation of the add a product fields  -->
             <section id="milieu">
                 <article id="titreAjoutProd">
@@ -81,7 +82,7 @@
                 </article>
 
                 <article id="choix">
-                    <a href="pageBoutique.html.twig"><button>Annuler</button></a>
+                    <a href="pageBoutique.html.twig" class="w3-btn">Annuler</a>
                     <button>Ajouter article</button>
                 </article>
             </section>

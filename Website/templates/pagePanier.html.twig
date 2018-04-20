@@ -8,6 +8,7 @@
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
 
     <body>
@@ -18,12 +19,12 @@
             <section id="navigation">
                 <!-- Creation of the connection section -->
                 <p id="btn">
-                    {% if user == null %}
-                        <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
-                        <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
-                    {% elseif user == {{ connected }} %}
-                        <a href=""><button id="déconnexionHead">Déconnexion</button></a>
-                    {% endif %}
+                    <!--{% if user == null %}-->
+                        <a href="pageInscription.html.twig" class="w3-btn">Inscription</a>
+                        <a href="pageConnexion.html.twig" class="w3-btn">Connexion</a>
+                    <!--{% elseif user == {{ connected }} %}-->
+                        <a href="" class="w3-btn">Déconnexion</a>
+                    <!--{% endif %}-->
                 </p>
 
                 <!-- Welcome message -->
@@ -54,10 +55,8 @@
                                         </article>
                                         <!-- Creation of the return to pageBoutique button -->
                                         <article class="col-xs-6">
-                                            <a href="pageBoutique.html.twig">
-                                            <button type="button" class="btn btn-primary btn-sm btn-block">
+                                            <a href="pageBoutique.html.twig" class="btn btn-primary btn-sm btn-block">
                                                 <span class="glyphicon glyphicon-share-alt"></span>Continuer mes achats
-                                            </button>
                                             </a>
                                         </article>
                                     </section>
@@ -65,16 +64,16 @@
                             </section>
                             <!-- Display all products -->
                             <section class="panel-body">
-                                {% for Product in 0..{{ Produit.NombreTotal }} %}
+                                <!--{% for Product in 0..{{ Produit.NombreTotal }} %}-->
                                 <section class="row">
-                                    <article class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
+                                    <article class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70" alt="imgProd">
                                     </article>
-                                    <article class="col-xs-4">
-                                        <h4 class="product-name"><strong>{{ Produit.Nom }}</strong></h4><h4><small>{{ Produit.Description }}</small></h4>
+                                    <article class="col-xs-6">
+                                        <h4 class="product-name"><strong>{{ Produit.Nom }}</strong></h4><h4 class="product-description"><small>{{ Produit.Description }}</small></h4>
                                     </article>
-                                    <section class="col-xs-6">
+                                    <section class="col-xs-8">
                                         <article class="col-xs-6 text-right">
-                                            <h6><strong>{{ Produit.Prix }} <span class="text-muted">x</span></strong></h6>
+                                            <h6 class="product-price"><strong>{{ Produit.Prix }} <span class="text-muted">x</span></strong></h6>
                                         </article>
                                         <article class="col-xs-4">
                                             <input type="text" class="form-control input-sm" value="1">
@@ -87,16 +86,16 @@
                                     </section>
                                 </section>
                                 <hr>
-                                {% endfor %}
+                                <!--{% endfor %}-->
                                 <hr>
                             </section>
                             <section class="panel-footer">
                                 <section class="row text-center">
-                                    <article class="col-xs-9">
+                                    <article class="col-xs-6">
                                         <!-- Display the amount of the order -->
                                         <h4 class="text-right">Total <strong>{{ Panier.PrixTotal }}</strong></h4>
                                     </article>
-                                    <article class="col-xs-3">
+                                    <article class="col-xs-6">
                                         <button type="button" class="btn btn-success btn-block">
                                             Commander
                                         </button>
@@ -112,7 +111,7 @@
         <footer>
             <!-- Creation of the contact us section -->
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-            <section class="container">
+            <section class="footer-container">
                 <article class="text-center center-block">
                     Nous contacter :<br/>
                     <a href="https://www.facebook.com/bdecesitoulouse/?ref=br_rs"><i class="fa fa-facebook-square fa-3x social"></i></a>

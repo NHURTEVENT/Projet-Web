@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="keywords" content="évènement,cesi,bde,event"/>
         <title>Evènement</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
 
     <body>
@@ -15,12 +16,12 @@
             <section id="navigation">
                 <!-- Creation of the connection section -->
                 <p id="btn">
-                    {% if user == null %}
-                    <a href="pageInscription.html.twig"><button id="inscriptionHead">Inscription</button></a>
-                    <a href="pageConnexion.html.twig"><button id="connexionHead">Connexion</button></a>
-                    {% elseif user == {{ connected }} %}
-                    <a href=""><button id="déconnexionHead">Déconnexion</button></a>
-                    {% endif %}
+                    <!--{% if user == null %}-->
+                    <a href="pageInscription.html.twig" class="w3-btn">Inscription</a>
+                    <a href="pageConnexion.html.twig" class="w3-btn">Connexion</a>
+                    <!--{% elseif user == {{ connected }} %}-->
+                    <a href="" class="w3-btn">Déconnexion</a>
+                    <!--{% endif %}-->
                 </p>
 
                 <!-- Welcome message -->
@@ -40,29 +41,47 @@
 
         <section id="center">
             <section id="container">
-                {% if modo == 1 and admin == 0 %}
+                <!--{% if modo == 1 and admin == 0 %}-->
                 <article id="barreAddEvent">
                     <!-- Button link to pageCréationEvent -->
-                    <h3>Ajouter un évènement:</h3>
-                    <a href="pageCréationEvent.html.twig"><button id="ajoutEvent">+</button></a>
+                    <h3 class="titre">Ajouter un évènement:</h3>
+                    <a href="pageCréationEvent.html.twig" class="w3-btn" id="add">+</a>
                 </article>
-                {% endif %}
-                <h2>Evènement passés</h2>
+                <!--{% endif %}-->
+                <h2 class="titre">Evènement passés</h2>
 
                 <section id="Passe">
                     <!-- Display of all past event -->
                     <!--{% for Event in 0..{{ Event.Passe }} %}-->
                         <article class="item ng-scope">
                             <a href="pageEventUnique.html.twig">
-                            <img src="{{ Event.img }}" class="imageEvent">
-                            <a class="Nom">{{ Event.Nom }}</a>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                                <p class="Nom">{{ Event.Nom }}</p>
+                            </a>
+                        </article>
+                        <article class="item ng-scope">
+                            <a href="pageEventUnique.html.twig">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                                <p class="Nom">{{ Event.Nom }}</p>
+                            </a>
+                        </article>
+                        <article class="item ng-scope">
+                            <a href="pageEventUnique.html.twig">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                                <p class="Nom">{{ Event.Nom }}</p>
+                            </a>
+                        </article>
+                        <article class="item ng-scope">
+                            <a href="pageEventUnique.html.twig">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                                <p class="Nom">{{ Event.Nom }}</p>
                             </a>
                         </article>
                     <!--{% endfor %}-->
                 </section>
 
                 <article id="barre2">
-                    <h2>A venir</h2>
+                    <h2 class="titre">A venir</h2>
                 </article>
 
                 <section id="Futur">
@@ -70,8 +89,26 @@
                     <!--{% for Event in 0..{{ Event.Futur }}%}-->
                     <article class="item ng-scope">
                         <a href="pageEventUnique.html.twig">
-                            <img src="{{ Event.img }}" class="imageEvent">
-                            <a class="Nom">{{ Event.Nom }}</a>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                            <p class="Nom">{{ Event.Nom }}</p>
+                        </a>
+                    </article>
+                    <article class="item ng-scope">
+                        <a href="pageEventUnique.html.twig">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                            <p class="Nom">{{ Event.Nom }}</p>
+                        </a>
+                    </article>
+                    <article class="item ng-scope">
+                        <a href="pageEventUnique.html.twig">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                            <p class="Nom">{{ Event.Nom }}</p>
+                        </a>
+                    </article>
+                    <article class="item ng-scope">
+                        <a href="pageEventUnique.html.twig">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHDc_UjxkBOlQzFnF4CpcnsJjIvKhSZ3hB-Q7_0aOx1Iow2hC" alt="imageEvent" class="imageEvent">
+                            <p class="Nom">{{ Event.Nom }}</p>
                         </a>
                     </article>
                     <!--{% endfor %}-->
