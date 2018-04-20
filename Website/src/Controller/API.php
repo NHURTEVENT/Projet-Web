@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use App\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -43,9 +44,22 @@ class API extends Controller
      */
     public function postProduct(Request $request, $product_id): Response
     {
-        $result = $this->getDoctrine()->getRepository(Product::class)->find($product_id);
+        $prod = $this->getDoctrine()->getRepository(Product::class)->find($product_id);
+        $data = json_decode(file_get_contents('php://input'), true);
 
-        return new Response("post");
+        if (isset($data['Title']))  $prod->setTitle($data['Title']);
+        if (isset($data['Description'])) $prod->setDescription($data['Description']);
+        if (isset($data['Category'])) {
+            $category = $this->getDoctrine()->getRepository(Category::class)->findByName($data['Category']);
+            $prod->setCategory($category);
+        }
+        if (isset($data['Price'])) $prod->setPrice($data['Price']);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($prod);
+            $em->flush();
+
+            return new Response("put successful");
     }
 
     /**
@@ -53,8 +67,8 @@ class API extends Controller
      */
     public function putProduct(Request $request){
         $prod = new Product();
-        $form = $this->createForm(ProductType::class,$prod);
-        $form->handleRequest($request);
+        //$form = $this->createForm(ProductType::class,$prod);
+        //$form->handleRequest($request);
         //return new JsonResponse($request);
         /*if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -64,9 +78,30 @@ class API extends Controller
             $em->flush();
 
         }
-
         else {return new Response("put");}*/
-        return new Response("put");
+
+        //var_dump($request);
+        $data = json_decode(file_get_contents('php://input'), true);
+
+        if ( isset($data['Title'])
+            && isset($data['Description'])
+            && isset($data['Category'])
+            && isset($data['Price'])
+        ){
+            $prod->setTitle($data['Title']);
+            $prod->setDescription($data['Description']);
+            $category = $this->getDoctrine()->getRepository(Category::class)->findByName($data['Category']);
+            $prod->setCategory($category);
+            $prod->setPrice($data['Price']);
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($prod);
+        $em->flush();
+
+        return new Response("put successful");
+        }
+        else return new Response("put failled");
     }
 
     /**
