@@ -347,11 +347,18 @@ footer{
 
 /*css panier, event unique*/
 
-.container, .containerEventUnique, .containerProd{
+.container, .containerProd{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     margin-left: 20%;
+}
+
+.containerEventUnique{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 45%;
 }
 
 
