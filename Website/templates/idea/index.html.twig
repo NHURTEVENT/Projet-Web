@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Idea index{% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">{% endblock %}
 
 {% block body %}
+    {{ include('header.html.twig') }}
     <h1>Idea index</h1>
 
     <table class="table">

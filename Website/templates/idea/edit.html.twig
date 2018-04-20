@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit Idea{% endblock %}
-
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">{% endblock %}
 {% block body %}
+    {{ include('header.html.twig') }}
     <h1>Edit Idea</h1>
 
     {{ include('idea/_form.html.twig', {'button_label': 'Update'}) }}

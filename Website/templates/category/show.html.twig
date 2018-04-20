@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">{% endblock %}
 {% block title %}Category{% endblock %}
 
 {% block body %}
+    {{ include('header.html.twig') }}
     <h1>Category</h1>
 
     <table class="table">
