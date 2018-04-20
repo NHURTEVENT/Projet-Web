@@ -55,7 +55,7 @@ class API extends Controller
         $prod = new Product();
         $form = $this->createForm(ProductType::class,$prod);
         $form->handleRequest($request);
-        return new JsonResponse($request);
+        //return new JsonResponse($request);
         /*if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             //$em = $this->getDoctrine()->getManager();
@@ -66,6 +66,7 @@ class API extends Controller
         }
 
         else {return new Response("put");}*/
+        return new Response("put");
     }
 
     /**
